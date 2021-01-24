@@ -1,3 +1,4 @@
 <resources>
+<!-- ventana_componente_loquehace  Ej: tv_login_faltandatos -->
     <string name="app_name">Commons</string>
 </resources>
