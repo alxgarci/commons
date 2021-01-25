@@ -24,6 +24,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        //para cambiar el color de la barra de estado
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorBackground));
 
         logo = findViewById(R.id.ivLogoSplash);
         nombreApp = findViewById(R.id.tvNombreAppSplash);
@@ -39,6 +41,7 @@ public class SplashActivity extends AppCompatActivity {
         nombreApp.startAnimation(fadein);
 
         openDelay(true);
+
     }
 
     private void openDelay(boolean b) {
