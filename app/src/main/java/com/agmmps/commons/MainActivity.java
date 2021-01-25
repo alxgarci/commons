@@ -6,7 +6,8 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    //lechuga y cebollaa
+    //ke pasa brode
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
