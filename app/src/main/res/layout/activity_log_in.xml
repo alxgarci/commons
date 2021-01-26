@@ -25,10 +25,10 @@
         android:id="@+id/lLoginUsuario"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLoginTitulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="250dp">
+        android:layout_marginTop="50dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etLoginUsuario"
@@ -64,13 +64,13 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnLoginAcceder"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lLoginPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="240dp"
+        android:layout_marginTop="40dp"
         android:text="@string/btn_login_acceder"
         android:textSize="22sp"
         style="@style/ButtonOrange"
@@ -81,10 +81,10 @@
         android:id="@+id/tvLoginSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnLoginAcceder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="150dp"
+        android:layout_marginTop="80dp"
         android:text="@string/tv_login_signup"
         android:textSize="20sp"
         android:textColor="@color/colorBackground"
