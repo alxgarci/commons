@@ -17,6 +17,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 public class SplashActivity extends AppCompatActivity {
 
+    //s
     ImageView logo;
     TextView nombreApp;
 
