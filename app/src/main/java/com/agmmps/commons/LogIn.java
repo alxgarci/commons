@@ -50,7 +50,7 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void abrirSignup(View view) {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, SignUp.class);
         startActivity(i);
     }
 }

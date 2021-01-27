@@ -19,11 +19,11 @@ public class SignUp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
-        etNombre = findViewById(R.id.etsignupnombre);
-        etBarrio = findViewById(R.id.etsignupbarrio);
-        etEmail = findViewById(R.id.etsignupemail);
-        etContrasenia = findViewById(R.id.etsignupcontrasenia);
+        setContentView(R.layout.activity_signup);
+        etNombre = findViewById(R.id.etSignUpUsuario);
+        etBarrio = findViewById(R.id.etSignUpBarrio);
+        etEmail = findViewById(R.id.etSignUpCorreo);
+        etContrasenia = findViewById(R.id.etSignUpPassword);
 
     }
 
