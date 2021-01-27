@@ -1,4 +1,16 @@
 <resources>
-<!-- ventana_componente_loquehace  Ej: tv_login_faltandatos -->
+    <!-- ventana_componente_loquehace  Ej: tv_login_faltandatos -->
     <string name="app_name">Commons</string>
+    <string name="tv_signup_titulo">Sign up</string>
+    <string name="tv_signup_nombre">Nombre</string>
+    <string name="tv_signup_barrio">Barrio</string>
+    <string name="tv_signup_email">Email</string>
+    <string name="tv_signup_login">Log in</string>
+    <string name="et_signup_nombre">Introduce el nombre</string>
+    <string name="et_signup_barrio">Introduce el barrio</string>
+    <string name="et_signup_email">Introduce el email</string>
+    <string name="et_signup_contraseña">Contraseña</string>
+    <string name="pass">Contraseña</string>
+    <string name="btn_signup_signup">SIGN UP</string>
+    <string name="debe_introducir">Debe introducir en los campos requeridos</string>
 </resources>
