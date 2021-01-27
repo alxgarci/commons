@@ -1,10 +1,27 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryLight</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="AppTheme.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryLight</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="ButtonOrange" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/statelist</item>
+        <item name="font">@font/montserrat</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="ButtonGreen" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/statelist_green</item>
+        <item name="font">@font/montserrat</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 
 </resources>
