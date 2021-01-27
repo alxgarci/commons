@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp"
+    android:background="@drawable/scrim_gradient">
+
+    <TextView
+        android:id="@+id/tvSignUpTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_signup_titulo"
+        android:textColor="@color/colorBackground"
+        android:textSize="24sp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lSignUpUsuario"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="@id/tvSignUpTitulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignUpUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTransparent"
+            android:hint="@string/hint_login_usuario"
+            android:textColorHint="@color/colorBackground"
+            android:fontFamily="@font/montserrat"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lSignUpBarrio"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="@id/lSignUpUsuario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignUpBarrio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTransparent"
+            android:hint="@string/tv_signup_barrio"
+            android:textColorHint="@color/colorBackground"
+            android:fontFamily="@font/montserrat"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lSignUpCorreo"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="@id/lSignUpBarrio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignUpCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTransparent"
+            android:hint="@string/tv_signup_email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/colorBackground"
+            android:fontFamily="@font/montserrat"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lSignUpPassword"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toBottomOf="@id/lSignUpCorreo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignUpPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTransparent"
+            android:hint="@string/hint_login_password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorBackground"
+            android:fontFamily="@font/montserrat"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignUpAcceder"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/lSignUpPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:text="@string/btn_signup_signup"
+        android:textSize="22sp"
+        style="@style/ButtonOrange"
+        android:onClick="signUp" />
+
+    <TextView
+        android:id="@+id/tvSignUpLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_signup_login"
+        android:textColor="@color/colorBackground"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/btnSignUpAcceder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="abrirLogin"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

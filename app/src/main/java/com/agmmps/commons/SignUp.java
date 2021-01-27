@@ -1,4 +1,4 @@
-package com.agmmps.commons.activitys;
+package com.agmmps.commons;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,26 +9,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.agmmps.commons.MainActivity;
-import com.agmmps.commons.R;
-
-public class asd extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
     private static final int REQ_CODE_1 = 1;
     EditText etNombre;
     EditText etBarrio;
     EditText etEmail;
     EditText etContrasenia;
-    String nombre;
-    String barrio;
-    String email;
-    String contrasenia;
-    Button btnSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        btnSignUp = findViewById(R.id.btnSignUpSignUp);
         etNombre = findViewById(R.id.etsignupnombre);
         etBarrio = findViewById(R.id.etsignupbarrio);
         etEmail = findViewById(R.id.etsignupemail);
@@ -36,18 +27,23 @@ public class asd extends AppCompatActivity {
 
     }
 
-    public void SignUp(View view) {
-        nombre = etNombre.getText().toString();
-        barrio = etBarrio.getText().toString();
-        email = etEmail.getText().toString();
-        contrasenia = etContrasenia.getText().toString();
+    public void signUp(View view) {
+        String nombre = etNombre.getText().toString();
+        String barrio = etBarrio.getText().toString();
+        String email = etEmail.getText().toString();
+        String contrasenia = etContrasenia.getText().toString();
         if (nombre.isEmpty() || contrasenia.isEmpty() || barrio.isEmpty() ||email.isEmpty()){
 
             Toast.makeText(this, R.string.debe_introducir, Toast.LENGTH_SHORT).show();
 
         }else{
             Intent i = new Intent(this, MainActivity.class);
-            startActivityForResult(i, REQ_CODE_1);
+            startActivity(i);
         }
+    }
+
+    public void abrirLogin(View view) {
+        Intent i = new Intent(this, LogIn.class);
+        startActivity(i);
     }
 }

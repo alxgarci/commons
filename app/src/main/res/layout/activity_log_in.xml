@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/scrim_gradient"
     android:padding="16dp"
     tools:context=".LogIn">
 
@@ -34,7 +34,7 @@
             android:id="@+id/etLoginUsuario"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorTransparent"
             android:hint="@string/hint_login_usuario"
             android:textColorHint="@color/colorBackground"
             android:fontFamily="@font/montserrat"/>
@@ -54,7 +54,7 @@
             android:id="@+id/etLoginPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorTransparent"
             android:hint="@string/hint_login_password"
             android:inputType="textPassword"
             android:textColorHint="@color/colorBackground"

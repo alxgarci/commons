@@ -3,7 +3,6 @@ package com.agmmps.commons;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,9 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
-public class SplashActivity extends AppCompatActivity {
+public class Splash extends AppCompatActivity {
 
     //ss
     ImageView logo;
@@ -50,8 +48,8 @@ public class SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity
-                        .this, MainActivity.class);
+                Intent intent = new Intent(Splash
+                        .this, LogIn.class);
                 startActivity(intent);
                 finish();
             }
