@@ -16,6 +16,8 @@ public class LogIn extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+        //para cambiar el color de la barra de estado
+        getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
         etUsuario = findViewById(R.id.etLoginUsuario);
         etPassword = findViewById(R.id.etLoginPassword);

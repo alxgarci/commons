@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -24,6 +25,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         //para cambiar el color de la barra de estado
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         getWindow().setStatusBarColor(getResources().getColor(R.color.colorBackground));
 
         logo = findViewById(R.id.ivLogoSplash);
@@ -32,7 +34,7 @@ public class Splash extends AppCompatActivity {
         Glide.with(this)
                 .load(R.drawable.ic_logo_usuarios)
                 .fitCenter()
-                .placeholder(new ColorDrawable(this.getResources().getColor(R.color.colorPrimaryLight)))
+                .placeholder(new ColorDrawable(this.getResources().getColor(R.color.colorBackground)))
                 .into(logo);
 
         Animation fadein = AnimationUtils.loadAnimation(this, R.anim.fadein);
