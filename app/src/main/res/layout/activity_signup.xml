@@ -35,9 +35,10 @@
             android:id="@+id/etSignUpUsuario"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textColor="@color/colorBackground"
             android:background="@color/colorTransparent"
+            android:layout_marginStart="-8dp"
             android:hint="@string/hint_login_usuario"
-            android:textColorHint="@color/colorBackground"
             android:fontFamily="@font/montserrat"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -55,8 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorTransparent"
+            android:textColor="@color/colorBackground"
+            android:layout_marginStart="-8dp"
             android:hint="@string/tv_signup_barrio"
-            android:textColorHint="@color/colorBackground"
             android:fontFamily="@font/montserrat"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -75,9 +77,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorTransparent"
+            android:textColor="@color/colorBackground"
+            android:layout_marginStart="-8dp"
             android:hint="@string/tv_signup_email"
             android:inputType="textEmailAddress"
-            android:textColorHint="@color/colorBackground"
             android:fontFamily="@font/montserrat"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -96,9 +99,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorTransparent"
+            android:textColor="@color/colorBackground"
+            android:layout_marginStart="-8dp"
             android:hint="@string/hint_login_password"
             android:inputType="textPassword"
-            android:textColorHint="@color/colorBackground"
             android:fontFamily="@font/montserrat"/>
 
     </com.google.android.material.textfield.TextInputLayout>

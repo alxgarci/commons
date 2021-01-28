@@ -11,7 +11,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryLight</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="textInputStyle">@style/myInputText</item>
+        <item name="textInputStyle">@style/myInputTextLogin</item>
     </style>
     <style name="ButtonOrange" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/statelist</item>
@@ -23,9 +23,9 @@
         <item name="font">@font/montserrat</item>
         <item name="android:textStyle">bold</item>
     </style>
-    <style name="myInputText" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="myInputTextLogin" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxBackgroundColor">@color/colorTransparent</item>
-        <item name="hintTextColor">@color/colorAccent</item>
+        <item name="hintTextColor">@color/colorTransparentWhite</item>
         <item name="boxStrokeColor">@color/statelist_it_login</item>
         <item name="android:textColorHint">@color/colorTransparentWhite</item>
         <item name="endIconTint">@color/colorTransparentWhite</item>
