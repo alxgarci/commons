@@ -30,6 +30,9 @@
         <item name="android:textColorHint">@color/colorTransparentWhite</item>
         <item name="endIconTint">@color/colorTransparentWhite</item>
     </style>
+    <style name="bottomAppbar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="labelVisibilityMode">selected</item>
+    </style>
 
 
 </resources>
