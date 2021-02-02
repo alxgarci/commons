@@ -7,8 +7,8 @@
     tools:context=".MainActivity">
 
 
-    <LinearLayout
-        android:id="@+id/llMainContenedor"
+    <FrameLayout
+        android:id="@+id/frMainContenedor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -16,6 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="horizontal">
 
-    </LinearLayout>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

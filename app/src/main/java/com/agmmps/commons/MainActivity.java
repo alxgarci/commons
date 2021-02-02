@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.agmmps.commons.fragments.InicioFragment;
@@ -13,14 +14,14 @@ public class MainActivity extends AppCompatActivity {
 
     //gjtgjtjtjtkkkg
 
-    LinearLayout ll;
+    FrameLayout fl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ll = findViewById(R.id.llMainContenedor);
+        fl = findViewById(R.id.frMainContenedor);
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 //        bundle.putString(NAME_KEY, nom);
 //        cf.setArguments(bundle);
 
-        ft.add(R.id.llMainContenedor, iFrag);
+        ft.add(R.id.frMainContenedor, iFrag);
         ft.addToBackStack(null);
         ft.commit();
 
