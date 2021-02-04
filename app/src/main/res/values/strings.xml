@@ -21,4 +21,6 @@
     <string name="main_home">Inicio</string>
     <string name="main_community">Vecinos</string>
     <string name="main_profile">Perfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
