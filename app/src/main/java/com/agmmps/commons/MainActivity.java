@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -19,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     TextView titulo;
     BottomNavigationView bottom;
-    //TODO importar navigation bar
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +37,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.itmHome) {
-                    titulo.setText(R.string.main_home);
                     addFragment(R.id.itmHome);
                 } else if (item.getItemId() == R.id.itmBuscar) {
-                    titulo.setText(R.string.main_community);
                     addFragment(R.id.itmBuscar);
                 } else if (item.getItemId() == R.id.itmUsuario) {
-                    titulo.setText(R.string.main_profile);
                     addFragment(R.id.itmUsuario);
                 }
                 return true;
@@ -63,13 +60,20 @@ public class MainActivity extends AppCompatActivity {
 
         switch (nom){
             case R.id.itmHome:
+                titulo.setText(R.string.main_home);
+                //TODO añadir fragments
                 //fragment 1
                 break;
             case R.id.itmUsuario:
+                titulo.setText(R.string.main_profile);
                 //fragment 2
                 break;
             case R.id.itmBuscar:
+                titulo.setText(R.string.main_community);
                 //fragment 3
+                break;
+            default:
+                Toast.makeText(this, String.valueOf(getText(R.string.no_fragment)) + nom, Toast.LENGTH_LONG).show();
                 break;
         }
     }
