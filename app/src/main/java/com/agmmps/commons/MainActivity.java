@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.agmmps.commons.fragments.InicioFragment;
+import com.agmmps.commons.fragments.ResultBusqVecFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ft = fm.beginTransaction();
 
         InicioFragment iFrag = InicioFragment.newInstance();
+//        ResultBusqVecFragment rbvf = ResultBusqVecFragment.newInstance();
+
 //        Bundle bundle = new Bundle();
 //        bundle.putString(NAME_KEY, nom);
 //        cf.setArguments(bundle);
