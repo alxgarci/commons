@@ -62,7 +62,7 @@ public class InicioFragment extends Fragment {
         rv = view.findViewById(R.id.rvInicio);
 
         rv.setHasFixedSize(true);
-        //rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
         final Datos datos = new Datos();
         InicioAdapter inicAdap = new InicioAdapter((datos.getDatos()));

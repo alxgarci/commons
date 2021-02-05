@@ -69,7 +69,7 @@ public class Anuncio implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(idAnuncio);
         dest.writeString(descripAnun);
-        dest.writeParcelable(usuario, 0);
+        dest.writeParcelable(usuario, flags );
 
     }
 }
