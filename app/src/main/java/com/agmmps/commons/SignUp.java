@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SignUp extends AppCompatActivity {
-    private static final int REQ_CODE_1 = 1;
     EditText etNombre;
     EditText etBarrio;
     EditText etEmail;
