@@ -41,6 +41,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bnMainBottomMenu"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_fab_add"
+        app:layout_constraintBottom_toTopOf="@id/bnMainBottomMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/material_fab"
+        app:tint="@color/colorBackground"
+        style="@style/FabMain"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnMainBottomMenu"
         android:layout_width="match_parent"

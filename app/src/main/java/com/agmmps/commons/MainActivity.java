@@ -14,12 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView titulo;
     BottomNavigationView bottom;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +33,28 @@ public class MainActivity extends AppCompatActivity {
 
         bottom = findViewById(R.id.bnMainBottomMenu);
         titulo = findViewById(R.id.tvMainTitulo);
+        fab = findViewById(R.id.fabMain);
+        fab.hide();
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "FAB Clicked.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //Listener del BottomNavigationView
         bottom.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.itmHome) {
+                    fab.hide();
                     addFragment(R.id.itmHome);
                 } else if (item.getItemId() == R.id.itmBuscar) {
+                    fab.show();
                     addFragment(R.id.itmBuscar);
                 } else if (item.getItemId() == R.id.itmUsuario) {
+                    fab.hide();
                     addFragment(R.id.itmUsuario);
                 }
                 return true;
