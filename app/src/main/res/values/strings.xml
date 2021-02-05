@@ -18,4 +18,12 @@
     <string name="pass">Contraseña</string>
     <string name="btn_signup_signup">SIGN UP</string>
     <string name="debe_introducir">Debe introducir en los campos requeridos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_fragment_nombre">Julia Ramírez</string>
+    <string name="tv_fragment_ubicacion">Chamartin, Madrid</string>
+    <string name="tv_fragment_desc">Descripción:</string>
+    <string name="tv_fragment_descripcion">Soy joven, inexperta y no conozco a mucha gente. Si eres de la zona me vendría bien un poco de ayuda.</string>
+    <string name="btn_fragment_editar">EDITAR</string>
+    <string name="btn_fragment_ajustes">AJUSTES</string>
 </resources>
