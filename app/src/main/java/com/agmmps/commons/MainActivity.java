@@ -15,7 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.agmmps.commons.fragments.BusquedaVecinosFragment;
+import com.agmmps.commons.fragments.InicioFragment;
 import com.agmmps.commons.fragments.PerfilFragment;
+import com.agmmps.commons.fragments.ResultBusqVecFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -39,12 +41,16 @@ public class MainActivity extends AppCompatActivity {
         titulo = findViewById(R.id.tvMainTitulo);
         fab = findViewById(R.id.fabMain);
         flMain = findViewById(R.id.flMain);
+        titulo.setText(R.string.main_home);
         fab.hide();
+
+        addFragment(1);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "FAB Clicked.", Toast.LENGTH_SHORT).show();
+                addFragment(2);
             }
         });
 
@@ -80,8 +86,10 @@ public class MainActivity extends AppCompatActivity {
         switch (nom){
             case R.id.itmHome:
                 titulo.setText(R.string.main_home);
-                //TODO añadir fragments
-                //fragment 1
+                InicioFragment ifg = new InicioFragment().newInstance();
+                ft.replace(R.id.flMain, ifg);
+                ft.addToBackStack(null);
+                ft.commit();
                 break;
             case R.id.itmUsuario:
                 titulo.setText(R.string.main_profile);
@@ -98,6 +106,20 @@ public class MainActivity extends AppCompatActivity {
                 ft.addToBackStack(null);
                 ft.commit();
 
+                break;
+            case 1:
+                titulo.setText(R.string.main_home);
+                InicioFragment if1 = new InicioFragment().newInstance();
+                ft.add(R.id.flMain, if1);
+                ft.addToBackStack(null);
+                ft.commit();
+                break;
+            case 2:
+                titulo.setText("PRUEBA RECYCLER");
+                ResultBusqVecFragment rbvf = ResultBusqVecFragment.newInstance();
+                ft.replace(R.id.flMain, rbvf);
+                ft.addToBackStack(null);
+                ft.commit();
                 break;
             default:
                 Toast.makeText(this, String.valueOf(getText(R.string.no_fragment)) + nom, Toast.LENGTH_LONG).show();

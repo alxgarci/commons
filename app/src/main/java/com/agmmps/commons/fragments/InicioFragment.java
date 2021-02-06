@@ -35,7 +35,7 @@ public class InicioFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static InicioFragment newInstance() {
+    public InicioFragment newInstance() {
         InicioFragment fragment = new InicioFragment();
         Bundle args = new Bundle();
 //        args.putString(ARG_PARAM1, param1);
