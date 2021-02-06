@@ -23,11 +23,14 @@
     <string name="main_profile">Perfil</string>
     <string name="no_fragment">"No se ha encontrado el fragment: "</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tv_fragment_nombre">Julia Ramírez</string>
     <string name="tv_fragment_ubicacion">Chamartin, Madrid</string>
     <string name="tv_fragment_desc">Descripción:</string>
     <string name="tv_fragment_descripcion">Soy joven, inexperta y no conozco a mucha gente. Si eres de la zona me vendría bien un poco de ayuda.</string>
     <string name="btn_fragment_editar">EDITAR</string>
     <string name="btn_fragment_ajustes">AJUSTES</string>
+    <!-- TODO:
+    <string name="btn_fragbusvec_filtro">FILTROS</string>
+    <string name="btn_FragBusVecSearch">SEARCH</string>Remove or change this placeholder text -->
+
 </resources>
