@@ -58,7 +58,7 @@
         android:layout_marginBottom="130dp"
         android:orientation="horizontal">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFragmentEditar"
             android:layout_width="167dp"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             android:text="@string/btn_fragment_editar"
             style="@style/ButtonOrange"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFragmentAjustes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

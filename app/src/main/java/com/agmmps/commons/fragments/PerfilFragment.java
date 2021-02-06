@@ -31,14 +31,7 @@ public class PerfilFragment extends Fragment {
 
     }
 
-    public static PerfilFragment newInstance() {
-        PerfilFragment fragment = new PerfilFragment();
-        return fragment;
-    }
-
-
-
-    public static PerfilFragment newInstance(String param1, String param2) {
+    public PerfilFragment newInstance() {
         PerfilFragment fragment = new PerfilFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);

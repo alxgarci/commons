@@ -10,9 +10,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.agmmps.commons.fragments.PerfilFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView titulo;
     BottomNavigationView bottom;
     FloatingActionButton fab;
+    FrameLayout flMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         bottom = findViewById(R.id.bnMainBottomMenu);
         titulo = findViewById(R.id.tvMainTitulo);
         fab = findViewById(R.id.fabMain);
+        flMain = findViewById(R.id.flMain);
         fab.hide();
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -80,11 +84,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.itmUsuario:
                 titulo.setText(R.string.main_profile);
-                //fragment 2
+                PerfilFragment pfrg = new PerfilFragment().newInstance();
+                ft.add(R.id.flMain, pfrg);
+                ft.addToBackStack(null);
+                ft.commit();
+
                 break;
             case R.id.itmBuscar:
                 titulo.setText(R.string.main_community);
-                //fragment 3
+
                 break;
             default:
                 Toast.makeText(this, String.valueOf(getText(R.string.no_fragment)) + nom, Toast.LENGTH_LONG).show();
