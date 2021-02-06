@@ -2,16 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.BusquedaVecinosFragment"
     android:orientation="vertical"
-    android:padding="6dp">
+    android:padding="6dp"
+    android:layout_marginTop="?attr/actionBarSize">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/lVecinosBusqueda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
+        style="@style/myInputTextMain">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etVecinosBusqueda"
@@ -20,21 +22,66 @@
             android:layout_marginStart="-8dp"
             android:background="@color/colorTransparent"
             android:hint="@string/hint_busqueda"
-            android:textColor="@color/colorBackground"
-            android:fontFamily="@font/montserrat"/>
+            android:fontFamily="@font/montserrat"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnFragBusVecfiltros"
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_fragment_vecinos_filtros"
-        />
+        android:layout_height="wrap_content">
+        <com.google.android.material.chip.ChipGroup
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="12dp"
+            android:id="@+id/chGroupBusqueda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:chipSpacingVertical="-4dp"
+            app:chipSpacingHorizontal="6dp"
+            app:singleLine="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chChamartin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chamartin"
+                style="@style/Widget.App.Chip"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chVillaverde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Villaverde Alto"
+                style="@style/Widget.App.Chip"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chSalamanca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Barrio de Salamanca"
+                style="@style/Widget.App.Chip"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chBernabeu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bernabeu"
+                style="@style/Widget.App.Chip"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chBellasVistas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BellasVistas"
+                style="@style/Widget.App.Chip"/>
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnFragBusVecsearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="@string/btn_fragment_vecinos_busqueda"
         style="@style/ButtonOrange"/>
 

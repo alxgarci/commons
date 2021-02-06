@@ -11,12 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.agmmps.commons.R;
+import com.google.android.material.chip.ChipGroup;
 
 
 public class BusquedaVecinosFragment extends Fragment {
-    Button btnFiltros;
     Button btnSearch;
     EditText etEscribir;
+    ChipGroup chips;
 
 
 
@@ -44,7 +45,8 @@ public class BusquedaVecinosFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_busqueda_vecinos, container, false);
         etEscribir=view.findViewById(R.id.etVecinosBusqueda);
-        btnFiltros = view.findViewById(R.id.btnFragBusVecfiltros);
+        chips = view.findViewById(R.id.chGroupBusqueda);
+
         btnSearch = view.findViewById(R.id.btnFragBusVecsearch);
         return view;
     }

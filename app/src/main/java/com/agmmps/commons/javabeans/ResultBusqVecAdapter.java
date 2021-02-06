@@ -25,7 +25,7 @@ public class ResultBusqVecAdapter extends RecyclerView.Adapter<ResultBusqVecAdap
     @NonNull
     @Override
     public ResultBusqVecViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_usuario_busqvec, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_material_usuario_busqvec, parent, false);
         v.setOnClickListener(this);
         ResultBusqVecAdapter.ResultBusqVecViewHolder rbvvh = new ResultBusqVecAdapter.ResultBusqVecViewHolder(v);
         return rbvvh;

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         fab = findViewById(R.id.fabMain);
         flMain = findViewById(R.id.flMain);
         titulo.setText(R.string.main_home);
-        fab.hide();
+        fab.show();
 
         addFragment(1);
 
@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.itmHome) {
-                    fab.hide();
+                    fab.show();
                     addFragment(R.id.itmHome);
                 } else if (item.getItemId() == R.id.itmBuscar) {
-                    fab.show();
+                    fab.hide();
                     addFragment(R.id.itmBuscar);
                 } else if (item.getItemId() == R.id.itmUsuario) {
                     fab.hide();
