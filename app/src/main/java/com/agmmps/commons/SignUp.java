@@ -20,7 +20,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        //para cambiar el color de la barra de estado
+        //para cambiar el color de la barra de o
         getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
         etNombre = findViewById(R.id.etSignUpUsuario);
