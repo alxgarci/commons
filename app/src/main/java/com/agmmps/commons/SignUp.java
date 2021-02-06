@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class SignUp extends AppCompatActivity {
-    private static final int REQ_CODE_1 = 1;
     EditText etNombre;
     EditText etBarrio;
     EditText etEmail;
@@ -20,7 +19,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        //para cambiar el color de la barra de estado
+        //para cambiar el color de la barra de o
         getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
         etNombre = findViewById(R.id.etSignUpUsuario);

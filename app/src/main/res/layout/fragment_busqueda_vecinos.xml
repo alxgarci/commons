@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.BusquedaVecinosFragment"
+    android:orientation="vertical"
+    android:padding="6dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lVecinosBusqueda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etVecinosBusqueda"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="-8dp"
+            android:background="@color/colorTransparent"
+            android:hint="@string/hint_busqueda"
+            android:textColor="@color/colorBackground"
+            android:fontFamily="@font/montserrat"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFragBusVecfiltros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_fragment_vecinos_filtros"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFragBusVecsearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_fragment_vecinos_busqueda"
+        style="@style/ButtonOrange"/>
+
+
+</LinearLayout>
