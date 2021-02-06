@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.agmmps.commons.fragments.BusquedaVecinosFragment;
 import com.agmmps.commons.fragments.PerfilFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -84,14 +85,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.itmUsuario:
                 titulo.setText(R.string.main_profile);
-                PerfilFragment pfrg = new PerfilFragment().newInstance();
-                ft.add(R.id.flMain, pfrg);
+                PerfilFragment pf = new PerfilFragment().newInstance();
+                ft.replace(R.id.flMain, pf);
                 ft.addToBackStack(null);
                 ft.commit();
 
                 break;
             case R.id.itmBuscar:
                 titulo.setText(R.string.main_community);
+                BusquedaVecinosFragment bvf = new BusquedaVecinosFragment().newInstance();
+                ft.replace(R.id.flMain, bvf);
+                ft.addToBackStack(null);
+                ft.commit();
 
                 break;
             default:

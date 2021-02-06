@@ -29,8 +29,8 @@
     <string name="tv_fragment_descripcion">Soy joven, inexperta y no conozco a mucha gente. Si eres de la zona me vendría bien un poco de ayuda.</string>
     <string name="btn_fragment_editar">EDITAR</string>
     <string name="btn_fragment_ajustes">AJUSTES</string>
-    <!-- TODO:
-    <string name="btn_fragbusvec_filtro">FILTROS</string>
-    <string name="btn_FragBusVecSearch">SEARCH</string>Remove or change this placeholder text -->
+    <string name="btn_fragment_vecinos_busqueda">Buscar</string>
+    <string name="btn_fragment_vecinos_filtros">Filtros</string>
+    <string name="hint_busqueda">Introduce el nombre del vecino</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.agmmps.commons.fragment;
+package com.agmmps.commons.fragments;
 
 import android.os.Bundle;
 
@@ -25,7 +25,7 @@ public class BusquedaVecinosFragment extends Fragment {
     }
 
 
-    public static BusquedaVecinosFragment newInstance(String param1, String param2) {
+    public BusquedaVecinosFragment newInstance() {
         BusquedaVecinosFragment fragment = new BusquedaVecinosFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -43,7 +43,7 @@ public class BusquedaVecinosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_busqueda_vecinos, container, false);
-        etEscribir=view.findViewById(R.id.etFragBusVecescribir);
+        etEscribir=view.findViewById(R.id.etVecinosBusqueda);
         btnFiltros = view.findViewById(R.id.btnFragBusVecfiltros);
         btnSearch = view.findViewById(R.id.btnFragBusVecsearch);
         return view;
