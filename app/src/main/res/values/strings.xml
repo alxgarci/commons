@@ -32,5 +32,4 @@
     <string name="btn_fragment_vecinos_busqueda">Buscar</string>
     <string name="btn_fragment_vecinos_filtros">Filtros</string>
     <string name="hint_busqueda">Introduce el nombre del vecino</string>
-
 </resources>
