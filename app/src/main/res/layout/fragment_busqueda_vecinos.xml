@@ -7,7 +7,7 @@
     tools:context=".fragments.BusquedaVecinosFragment"
     android:orientation="vertical"
     android:padding="6dp"
-    android:layout_marginTop="?attr/actionBarSize">
+    android:layout_marginBottom="116dp">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/lVecinosBusqueda"

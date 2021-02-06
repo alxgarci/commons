@@ -36,11 +36,9 @@
         android:id="@+id/flMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foregroundGravity="top"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/abMainAppbar"
-        app:layout_constraintBottom_toTopOf="@id/bnMainBottomMenu"/>
+        app:layout_constraintTop_toBottomOf="@id/abMainAppbar"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabMain"
