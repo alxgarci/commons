@@ -12,6 +12,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryLight</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="textInputStyle">@style/myInputTextLogin</item>
+        <item name="chipStyle">@style/Widget.App.Chip</item>
     </style>
     <style name="ButtonOrange" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/statelist</item>
@@ -30,11 +31,23 @@
         <item name="android:textColorHint">@color/colorTransparentWhite</item>
         <item name="endIconTint">@color/colorTransparentWhite</item>
     </style>
+    <style name="myInputTextMain" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/colorTransparent</item>
+        <item name="hintTextColor">@color/colorPrimary</item>
+        <item name="boxStrokeColor">@color/statelist_it_main</item>
+        <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="endIconTint">@color/colorTransparentWhite</item>
+    </style>
     <style name="bottomAppbar" parent="Widget.MaterialComponents.BottomAppBar">
         <item name="labelVisibilityMode">selected</item>
     </style>
     <style name="FabMain" parent="Widget.Design.FloatingActionButton">
         <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:textColor">@color/colorBackground</item>
+        <item name="chipBackgroundColor">@color/colorPrimaryLight</item>
+        <item name="checkedIconTint">@color/colorBackground</item>
     </style>
 
 

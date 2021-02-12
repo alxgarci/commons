@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.agmmps.commons.MainActivity;
 import com.agmmps.commons.R;
+import com.bumptech.glide.Glide;
 
 
 public class PerfilFragment extends Fragment {
@@ -55,6 +56,11 @@ public class PerfilFragment extends Fragment {
         tvDescripcion =  view.findViewById(R.id.tvFragmentDescripcion);
         btnEditar = view.findViewById(R.id.btnFragmentEditar);
         btnAjustes = view.findViewById(R.id.btnFragmentAjustes);
+        Glide.with(this)
+                .load(R.drawable.usuario_3)
+                .placeholder(R.drawable.ic_logo_usuarios)
+                .circleCrop()
+                .into(imPerfil);
         return view;
 
 
