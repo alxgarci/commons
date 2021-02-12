@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.EditarPerfilFragment">
+
+    <LinearLayout
+        android:id="@+id/ll1EditPerfFrag"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvEditPerfFragTitNom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:text="Nombre"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lEditPerfFragNom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEditPerfFragNom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="-8dp"
+                android:background="@color/colorTransparent"
+                android:fontFamily="@font/montserrat"
+                android:text="Julia Ramirez"
+                android:textColor="@color/colorPrimary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll2EditPerfFrag"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvEditPerfFragTitBarrio"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:text="Barrio"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lEditPerfFragBarrio"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEditPerfFragBarrio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="-8dp"
+                android:background="@color/colorTransparent"
+                android:fontFamily="@font/montserrat"
+                android:text="Chamartin"
+                android:textColor="@color/colorPrimary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll3EditPerfFrag"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvEditPerfFragTitCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:text="Correo"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lEditPerfFragCorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEditPerfFragCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="-8dp"
+                android:background="@color/colorTransparent"
+                android:fontFamily="@font/montserrat"
+                android:text="julita88@gmail.com"
+                android:textColor="@color/colorPrimary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll4EditPerfFrag"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvEditPerfFragTitPW"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:text="Contraseña"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lEditPerfFragPW"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEditPerfFragPW"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="-8dp"
+                android:background="@color/colorTransparent"
+                android:fontFamily="@font/montserrat"
+                android:text="tomate1234"
+                android:textColor="@color/colorPrimary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll5EditPerfFrag"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvEditPerfFragTitDescrip"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:text="Descripción"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lEditPerfFragDescrip"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="-16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEditPerfFragDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="-8dp"
+                android:background="@color/colorTransparent"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/tv_fragment_descripcion"
+                android:textColor="@color/colorPrimary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEditPerfFragGuardar"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:text="Guardar"
+        android:textSize="22sp"
+        style="@style/ButtonOrange"/>
+
+
+</LinearLayout>

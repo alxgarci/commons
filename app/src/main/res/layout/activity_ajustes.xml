@@ -4,26 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Ajustes">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/abMainAppbar"
+        android:id="@+id/abAjustesAppbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/colorBackground">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tbToolbarMain"
+            android:id="@+id/tbToolbarAjustes"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_marginStart="-16dp">
             <TextView
-                android:id="@+id/tvMainTitulo"
+                android:id="@+id/tvAjustesTitulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/main_home"
+                android:text="Editar/Ajustes"
                 android:fontFamily="@font/montserrat"
                 android:textStyle="bold"
                 android:textSize="28sp"
@@ -33,33 +34,13 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
-        android:id="@+id/flMain"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/abMainAppbar"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabMain"
+        android:id="@+id/flAjustes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_fab_add"
-        app:layout_constraintBottom_toTopOf="@id/bnMainBottomMenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="@dimen/material_fab"
-        app:tint="@color/colorBackground"
-        style="@style/FabMain"/>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnMainBottomMenu"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        style="@style/bottomAppbar"
-        app:menu="@menu/bottom_navigation_menu">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
