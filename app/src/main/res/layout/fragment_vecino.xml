@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ResultBusqVecFragment"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/im_fragment_vecino"
+        android:layout_width="269dp"
+        android:layout_height="178dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/ic_logo_usuarios" />
+
+    <TextView
+        android:id="@+id/tvFragmentNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/tv_fragment_nombre"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="24sp" />
+    <TextView
+        android:id="@+id/tvFragmentUbica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="@string/tv_fragment_ubicacion"/>
+
+    <TextView
+        android:id="@+id/tvFragmentDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_fragment_desc"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/tvFragmentDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/tv_fragment_descripcion"/>
+
+
+</LinearLayout>
