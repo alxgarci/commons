@@ -11,8 +11,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="200dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_gravity="center"
         android:text="About us"
         android:textSize="22sp"
         style="@style/ButtonGreen"/>
@@ -22,8 +21,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_gravity="center"
         android:text="Private Policy"
         android:textSize="22sp"
         style="@style/ButtonGreen"/>
@@ -33,8 +31,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_gravity="center"
         android:text="Log Out"
         android:textSize="22sp"
         style="@style/ButtonOrange"/>
