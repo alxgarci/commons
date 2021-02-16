@@ -18,11 +18,17 @@ import com.agmmps.commons.fragments.BusquedaVecinosFragment;
 import com.agmmps.commons.fragments.InicioFragment;
 import com.agmmps.commons.fragments.PerfilFragment;
 import com.agmmps.commons.fragments.ResultBusqVecFragment;
+import com.agmmps.commons.fragments.VecinoFragment;
+import com.agmmps.commons.javabeans.Usuario;
+import com.agmmps.commons.listeners.BusqVecFragmentListener;
+import com.agmmps.commons.listeners.InicioFragmentListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements InicioFragmentListener, BusqVecFragmentListener {
 
     TextView titulo;
     BottomNavigationView bottom;
@@ -114,16 +120,44 @@ public class MainActivity extends AppCompatActivity {
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
-            case 2:
-                titulo.setText("PRUEBA RECYCLER");
-                ResultBusqVecFragment rbvf = ResultBusqVecFragment.newInstance();
-                ft.replace(R.id.flMain, rbvf);
-                ft.addToBackStack(null);
-                ft.commit();
-                break;
+//            case 2:
+//                titulo.setText("PRUEBA RECYCLER");
+//                ResultBusqVecFragment rbvf = ResultBusqVecFragment.newInstance();
+//                ft.replace(R.id.flMain, rbvf);
+//                ft.addToBackStack(null);
+//                ft.commit();
+//                break;
             default:
                 Toast.makeText(this, String.valueOf(getText(R.string.no_fragment)) + nom, Toast.LENGTH_LONG).show();
                 break;
         }
+    }
+
+    @Override
+    public void accederVecino(Usuario usuario) {
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        VecinoFragment vfg = new VecinoFragment().newInstance(usuario);
+        ft.replace(R.id.flMain, vfg);
+        ft.addToBackStack(null);
+        ft.commit();
+
+        titulo.setText("Vecino");
+
+    }
+
+
+    @Override
+    public void buscarVecinos(ArrayList<Usuario> listaVecinos) {
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ResultBusqVecFragment rbvfg = new ResultBusqVecFragment().newInstance(listaVecinos);
+        ft.replace(R.id.flMain, rbvfg);
+        ft.addToBackStack(null);
+        ft.commit();
+
+
     }
 }

@@ -15,6 +15,7 @@ import com.agmmps.commons.javabeans.Anuncio;
 import com.agmmps.commons.javabeans.Datos;
 import com.agmmps.commons.javabeans.InicioAdapter;
 import com.agmmps.commons.javabeans.ResultBusqVecAdapter;
+import com.agmmps.commons.javabeans.Usuario;
 
 import java.util.ArrayList;
 
@@ -25,23 +26,17 @@ import java.util.ArrayList;
  */
 public class ResultBusqVecFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
     private RecyclerView rv;
+    ArrayList<Usuario> listaVecinos;
 
     public ResultBusqVecFragment() {
         // Required empty public constructor
     }
 
-    public static ResultBusqVecFragment newInstance() {
+    public ResultBusqVecFragment newInstance(ArrayList<Usuario> listaVecinos) {
         ResultBusqVecFragment fragment = new ResultBusqVecFragment();
         Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
+        args.putParcelableArrayList("RBV", listaVecinos);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,8 +45,7 @@ public class ResultBusqVecFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            listaVecinos = getArguments().getParcelableArrayList("RBV");
         }
     }
 
@@ -66,8 +60,8 @@ public class ResultBusqVecFragment extends Fragment {
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        final Datos datos = new Datos();
-        ResultBusqVecAdapter rbvAdap = new ResultBusqVecAdapter((datos.getDatos()));
+
+        ResultBusqVecAdapter rbvAdap = new ResultBusqVecAdapter(listaVecinos);
 //        inicAdap.setListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -82,4 +76,5 @@ public class ResultBusqVecFragment extends Fragment {
 
         return view;
     }
+
 }

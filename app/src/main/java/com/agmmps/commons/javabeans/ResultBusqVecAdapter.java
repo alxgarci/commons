@@ -15,10 +15,10 @@ import java.util.ArrayList;
 
 public class ResultBusqVecAdapter extends RecyclerView.Adapter<ResultBusqVecAdapter.ResultBusqVecViewHolder> implements View.OnClickListener {
 
-    private ArrayList<Anuncio> datos;
+    private ArrayList<Usuario> datos;
     private View.OnClickListener listener;
 
-    public ResultBusqVecAdapter(ArrayList<Anuncio> datos) {
+    public ResultBusqVecAdapter(ArrayList<Usuario> datos) {
         this.datos = datos;
     }
 
@@ -33,7 +33,7 @@ public class ResultBusqVecAdapter extends RecyclerView.Adapter<ResultBusqVecAdap
 
     @Override
     public void onBindViewHolder(@NonNull ResultBusqVecViewHolder holder, int position) {
-        holder.bindItem(datos.get(position).getUsuario());
+        holder.bindItem(datos.get(position));
     }
 
     @Override
