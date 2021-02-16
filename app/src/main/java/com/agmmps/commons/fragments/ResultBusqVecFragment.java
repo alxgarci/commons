@@ -1,7 +1,9 @@
 package com.agmmps.commons.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +18,7 @@ import com.agmmps.commons.javabeans.Datos;
 import com.agmmps.commons.javabeans.InicioAdapter;
 import com.agmmps.commons.javabeans.ResultBusqVecAdapter;
 import com.agmmps.commons.javabeans.Usuario;
+import com.agmmps.commons.listeners.InicioFragmentListener;
 
 import java.util.ArrayList;
 
@@ -27,6 +30,7 @@ import java.util.ArrayList;
 public class ResultBusqVecFragment extends Fragment {
 
     private RecyclerView rv;
+    private InicioFragmentListener listener;
     ArrayList<Usuario> listaVecinos;
 
     public ResultBusqVecFragment() {
@@ -62,19 +66,34 @@ public class ResultBusqVecFragment extends Fragment {
 
 
         ResultBusqVecAdapter rbvAdap = new ResultBusqVecAdapter(listaVecinos);
-//        inicAdap.setListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int i = rv.indexOfChild(v);
-//                Item elemento = datos.getDatos().get(i);
-//                Intent intetDatos = new Intent(getApplicationContext(), DatosActivity.class);
-//                intetDatos.putExtra(CLAVE_DATOS, elemento);
-//                startActivity(intetDatos);
-//            }
-//        });
+        rbvAdap.setListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int i = rv.getChildAdapterPosition(v);
+                Usuario usuario = listaVecinos.get(i);
+                listener.accederVecino(usuario);
+            }
+        });
         rv.setAdapter(rbvAdap);
 
         return view;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof InicioFragmentListener) {
+            listener = (InicioFragmentListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
     }
 
 }
