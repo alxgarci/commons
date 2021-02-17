@@ -1,6 +1,7 @@
 package com.agmmps.commons;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.agmmps.commons.fragments.BusquedaVecinosFragment;
+import com.agmmps.commons.fragments.EditarPerfilFragment;
 import com.agmmps.commons.fragments.InicioFragment;
 import com.agmmps.commons.fragments.PerfilFragment;
 import com.agmmps.commons.fragments.ResultBusqVecFragment;
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements InicioFragmentLis
     BottomNavigationView bottom;
     FloatingActionButton fab;
     FrameLayout flMain;
+    Toolbar toolbar;
+    ActionBar actionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements InicioFragmentLis
         fab = findViewById(R.id.fabMain);
         flMain = findViewById(R.id.flMain);
         titulo.setText(R.string.main_home);
+        toolbar = findViewById(R.id.tbToolbarMain);
         fab.show();
 
         addFragment(1);
@@ -67,23 +72,43 @@ public class MainActivity extends AppCompatActivity implements InicioFragmentLis
                 if (item.getItemId() == R.id.itmHome) {
                     fab.show();
                     addFragment(R.id.itmHome);
+                    clearToolbar(1);
                 } else if (item.getItemId() == R.id.itmBuscar) {
                     fab.hide();
                     addFragment(R.id.itmBuscar);
+                    clearToolbar(1);
                 } else if (item.getItemId() == R.id.itmUsuario) {
                     fab.hide();
                     addFragment(R.id.itmUsuario);
+                    clearToolbar(0);
                 }
                 return true;
             }
         });
     }
 
+    //Listener flecha volver atras
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.bottom_navigation_menu, menu);
-        return super.onCreateOptionsMenu(menu);
+    public boolean onSupportNavigateUp() {
+//        Toast.makeText(MainActivity.this, "VOLVER ATRAS PULSADO", Toast.LENGTH_SHORT).show();
+        addFragment(7);
+        return true;
     }
+
+    private void clearToolbar(int i) {
+        toolbar.getMenu().clear();
+        if (i == 0) {
+            toolbar.inflateMenu(R.menu.ajustes_perfil);
+            toolbar.getOverflowIcon().setTint(getResources().getColor(color.colorPrimary));
+        }
+    }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.bottom_navigation_menu, menu);
+//        bottom.inflateMenu(R.menu.bottom_navigation_menu);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
     private void addFragment(int nom) {
         FragmentManager fm = getSupportFragmentManager();
@@ -95,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements InicioFragmentLis
                 InicioFragment ifg = new InicioFragment().newInstance();
                 ft.replace(R.id.flMain, ifg);
                 ft.addToBackStack(null);
+                disableHomeAsUp();
                 ft.commit();
                 break;
             case R.id.itmUsuario:
@@ -102,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements InicioFragmentLis
                 PerfilFragment pf = new PerfilFragment().newInstance();
                 ft.replace(R.id.flMain, pf);
                 ft.addToBackStack(null);
+                disableHomeAsUp();
                 ft.commit();
 
                 break;
@@ -110,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements InicioFragmentLis
                 BusquedaVecinosFragment bvf = new BusquedaVecinosFragment().newInstance();
                 ft.replace(R.id.flMain, bvf);
                 ft.addToBackStack(null);
+                disableHomeAsUp();
                 ft.commit();
 
                 break;
@@ -120,13 +148,6 @@ public class MainActivity extends AppCompatActivity implements InicioFragmentLis
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
-//            case 2:
-//                titulo.setText("PRUEBA RECYCLER");
-//                ResultBusqVecFragment rbvf = ResultBusqVecFragment.newInstance();
-//                ft.replace(R.id.flMain, rbvf);
-//                ft.addToBackStack(null);
-//                ft.commit();
-//                break;
             default:
                 Toast.makeText(this, String.valueOf(getText(R.string.no_fragment)) + nom, Toast.LENGTH_LONG).show();
                 break;
@@ -159,5 +180,13 @@ public class MainActivity extends AppCompatActivity implements InicioFragmentLis
         ft.commit();
 
 
+    }
+
+    private void disableHomeAsUp() {
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            setSupportActionBar(null);
+        }
     }
 }

@@ -51,32 +51,4 @@
             android:layout_marginRight="20dp"
             android:text="@string/tv_fragment_descripcion"/>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="147dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="130dp"
-        android:orientation="horizontal">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnFragmentEditar"
-            android:layout_width="167dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
-            android:text="@string/btn_fragment_editar"
-            style="@style/ButtonOrange"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnFragmentAjustes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
-            android:text="@string/btn_fragment_ajustes"
-            style="@style/ButtonGreen"/>
-
-    </LinearLayout>
-
 </LinearLayout>

@@ -17,8 +17,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tbToolbarMain"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:layout_marginStart="-16dp">
+            android:layout_height="?attr/actionBarSize">
             <TextView
                 android:id="@+id/tvMainTitulo"
                 android:layout_width="match_parent"

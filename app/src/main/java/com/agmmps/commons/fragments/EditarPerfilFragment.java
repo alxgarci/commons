@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toolbar;
 
 import com.agmmps.commons.R;
 
@@ -26,6 +27,7 @@ public class EditarPerfilFragment extends Fragment {
     EditText etCorreo;
     EditText etPassword;
     EditText etDescrip;
+    Toolbar toolbar;
 
     public EditarPerfilFragment() {
 

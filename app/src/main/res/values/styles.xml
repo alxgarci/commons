@@ -13,6 +13,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="textInputStyle">@style/myInputTextLogin</item>
         <item name="chipStyle">@style/Widget.App.Chip</item>
+        <item name="colorControlNormal">@color/colorPrimary</item>
     </style>
     <style name="ButtonOrange" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/statelist</item>
