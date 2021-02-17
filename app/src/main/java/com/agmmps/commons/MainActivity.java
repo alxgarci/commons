@@ -7,11 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -23,10 +19,8 @@ import com.agmmps.commons.fragments.EditarPerfilFragment;
 import com.agmmps.commons.fragments.InicioFragment;
 import com.agmmps.commons.fragments.PerfilFragment;
 import com.agmmps.commons.fragments.ResultBusqVecFragment;
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
 
 import static com.agmmps.commons.R.*;
 
@@ -89,6 +83,24 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+//            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    onBackPressed();
+//                    Toast.makeText(MainActivity.this, "FAB Clicked.", Toast.LENGTH_SHORT).show();
+//                    addFragment(2);
+//                    addFragment(id.itmHome);
+//                }
+//            });
+    }
+
+    //Listener flecha volver atras
+    @Override
+    public boolean onSupportNavigateUp() {
+//        Toast.makeText(MainActivity.this, "VOLVER ATRAS PULSADO", Toast.LENGTH_SHORT).show();
+        addFragment(7);
+        return true;
     }
 
     private void clearToolbar(int i) {
@@ -164,6 +176,18 @@ public class MainActivity extends AppCompatActivity {
                 ft.addToBackStack(null);
                 ft.commit();
                 break;
+
+            case 7:
+                if (fm.getBackStackEntryCount() > 0) {
+                    fm.popBackStackImmediate();
+                    actionBar = null;
+                    disableHomeAsUp();
+                    titulo.setText("prueba");
+                    Toast.makeText(MainActivity.this, "VOLVER ATRAS PULSADO", Toast.LENGTH_SHORT).show();
+
+                } else super.onBackPressed();
+                break;
+
 
             default:
                 Toast.makeText(this, String.valueOf(getText(string.no_fragment)) + nom, Toast.LENGTH_LONG).show();
