@@ -4,6 +4,8 @@ import com.agmmps.commons.javabeans.Usuario;
 
 public interface VecinoFragmentListener {
 
-    public void accederVecino(Usuario usuario);
+    public void accederVecinoInicio(Usuario usuario);
+
+    public void accederVecinoBusqueda(Usuario usuario);
 
 }

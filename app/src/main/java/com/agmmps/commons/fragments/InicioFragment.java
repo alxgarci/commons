@@ -74,7 +74,7 @@ public class InicioFragment extends Fragment {
             public void onClick(View v) {
                 int i = rv.getChildAdapterPosition(v);
                 Usuario usuario = datos.getDatos().get(i).getUsuario();
-                listener.accederVecino(usuario);
+                listener.accederVecinoInicio(usuario);
             }
         });
         rv.setAdapter(inicAdap);

@@ -22,19 +22,20 @@ import com.agmmps.commons.fragments.VecinoFragment;
 import com.agmmps.commons.javabeans.Usuario;
 import com.agmmps.commons.listeners.BusqVecFragmentListener;
 import com.agmmps.commons.listeners.VecinoFragmentListener;
+import com.agmmps.commons.listeners.VolverListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements VecinoFragmentListener, BusqVecFragmentListener {
+public class MainActivity extends AppCompatActivity implements VecinoFragmentListener, BusqVecFragmentListener, VolverListener {
 
     TextView titulo;
     BottomNavigationView bottom;
     FloatingActionButton fab;
     FrameLayout flMain;
     Toolbar toolbar;
-    ActionBar actionBar;
+    ArrayList listaVecinosBackup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
         flMain = findViewById(R.id.flMain);
         titulo.setText(R.string.main_home);
         toolbar = findViewById(R.id.tbToolbarMain);
+        listaVecinosBackup = new ArrayList<Usuario>();
         fab.show();
 
         addFragment(1);
@@ -85,12 +87,12 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
     }
 
     //Listener flecha volver atras
-    @Override
-    public boolean onSupportNavigateUp() {
+//    @Override
+//    public boolean onSupportNavigateUp() {
 //        Toast.makeText(MainActivity.this, "VOLVER ATRAS PULSADO", Toast.LENGTH_SHORT).show();
-        addFragment(7);
-        return true;
-    }
+//        addFragment(7);
+//        return true;
+//    }
 
     private void clearToolbar(int i) {
         toolbar.getMenu().clear();
@@ -117,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
                 InicioFragment ifg = new InicioFragment().newInstance();
                 ft.replace(R.id.flMain, ifg);
                 ft.addToBackStack(null);
-                disableHomeAsUp();
                 ft.commit();
                 break;
             case R.id.itmUsuario:
@@ -125,7 +126,6 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
                 PerfilFragment pf = new PerfilFragment().newInstance();
                 ft.replace(R.id.flMain, pf);
                 ft.addToBackStack(null);
-                disableHomeAsUp();
                 ft.commit();
 
                 break;
@@ -134,7 +134,6 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
                 BusquedaVecinosFragment bvf = new BusquedaVecinosFragment().newInstance();
                 ft.replace(R.id.flMain, bvf);
                 ft.addToBackStack(null);
-                disableHomeAsUp();
                 ft.commit();
 
                 break;
@@ -152,38 +151,72 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
     }
 
     @Override
-    public void accederVecino(Usuario usuario) {
+    public void accederVecinoInicio(Usuario usuario) {
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        VecinoFragment vfg = new VecinoFragment().newInstance(usuario);
+        VecinoFragment vfg = new VecinoFragment().newInstance(usuario, 1);
         ft.replace(R.id.flMain, vfg);
         ft.addToBackStack(null);
         ft.commit();
-
-        titulo.setText("Vecino");
+        //TODO: Ocultar toolbar
 
     }
+
+    @Override
+    public void accederVecinoBusqueda(Usuario usuario) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        VecinoFragment vfg = new VecinoFragment().newInstance(usuario, 2);
+        ft.replace(R.id.flMain, vfg);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+//    private void enableHomeAsUp() {
+//        setSupportActionBar(toolbar);
+//        actionBar = getSupportActionBar();
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+//    }
 
 
     @Override
     public void buscarVecinos(ArrayList<Usuario> listaVecinos) {
+
+        listaVecinosBackup = listaVecinos;
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ResultBusqVecFragment rbvfg = new ResultBusqVecFragment().newInstance(listaVecinos);
         ft.replace(R.id.flMain, rbvfg);
         ft.addToBackStack(null);
+
         ft.commit();
 
 
     }
 
-    private void disableHomeAsUp() {
-        actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(false);
-            setSupportActionBar(null);
-        }
+    @Override
+    public void backInicio() {
+        addFragment(R.id.itmHome);
     }
+
+    @Override
+    public void backResBusqueda() {
+        buscarVecinos(listaVecinosBackup);
+
+    }
+
+    @Override
+    public void backBusqueda() {
+
+    }
+
+//    private void disableHomeAsUp() {
+//        actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            actionBar.setDisplayHomeAsUpEnabled(false);
+//            setSupportActionBar(null);
+//        }
+//    }
 }

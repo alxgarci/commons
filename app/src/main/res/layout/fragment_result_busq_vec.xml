@@ -4,7 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ResultBusqVecFragment"
+    android:orientation="vertical"
     android:layout_marginBottom="116dp">
+
+    <ImageButton
+        android:id="@+id/backResultados"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_arrow_back_2"
+        android:background="@color/colorTransparent"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvResultBusqVec"

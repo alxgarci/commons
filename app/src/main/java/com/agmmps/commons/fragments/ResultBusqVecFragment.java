@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.agmmps.commons.R;
 import com.agmmps.commons.javabeans.ResultBusqVecAdapter;
@@ -29,6 +30,7 @@ public class ResultBusqVecFragment extends Fragment {
     private RecyclerView rv;
     private VecinoFragmentListener listener;
     ArrayList<Usuario> listaVecinos;
+    ImageView back;
 
     public ResultBusqVecFragment() {
         // Required empty public constructor
@@ -56,7 +58,11 @@ public class ResultBusqVecFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_result_busq_vec, container, false);
 
+
         rv = view.findViewById(R.id.rvResultBusqVec);
+        back = view.findViewById(R.id.backResultados);
+
+        //TODO: LISTENER FLECHA
 
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -68,7 +74,7 @@ public class ResultBusqVecFragment extends Fragment {
             public void onClick(View v) {
                 int i = rv.getChildAdapterPosition(v);
                 Usuario usuario = listaVecinos.get(i);
-                listener.accederVecino(usuario);
+                listener.accederVecinoBusqueda(usuario);
             }
         });
         rv.setAdapter(rbvAdap);
