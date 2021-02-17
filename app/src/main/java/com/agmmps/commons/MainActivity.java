@@ -29,7 +29,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements VecinoFragmentListener, BusqVecFragmentListener, VolverListener {
-
+//u
     TextView titulo;
     BottomNavigationView bottom;
     FloatingActionButton fab;
