@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/itmEditarPerfil"
+        android:title="Editar perfil"
+        android:icon="@drawable/ic_editar"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/itmAboutUs"
+        android:title="About us"
+        android:icon="@drawable/ic_bottom_home"
+        />
+    <item
+        android:id="@+id/itmPrivatePolicy"
+        android:title="Private Policy"
+        android:icon="@drawable/ic_bottom_vecinos"/>
+    <item
+        android:id="@+id/itmLogOut"
+        android:title="Log out"
+        android:icon="@drawable/ic_bottom_settings"
+        />
+</menu>
