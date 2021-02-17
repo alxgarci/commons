@@ -13,12 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.agmmps.commons.R;
-import com.agmmps.commons.javabeans.Anuncio;
-import com.agmmps.commons.javabeans.Datos;
-import com.agmmps.commons.javabeans.InicioAdapter;
 import com.agmmps.commons.javabeans.ResultBusqVecAdapter;
 import com.agmmps.commons.javabeans.Usuario;
-import com.agmmps.commons.listeners.InicioFragmentListener;
+import com.agmmps.commons.listeners.VecinoFragmentListener;
 
 import java.util.ArrayList;
 
@@ -30,7 +27,7 @@ import java.util.ArrayList;
 public class ResultBusqVecFragment extends Fragment {
 
     private RecyclerView rv;
-    private InicioFragmentListener listener;
+    private VecinoFragmentListener listener;
     ArrayList<Usuario> listaVecinos;
 
     public ResultBusqVecFragment() {
@@ -82,8 +79,8 @@ public class ResultBusqVecFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if (context instanceof InicioFragmentListener) {
-            listener = (InicioFragmentListener) context;
+        if (context instanceof VecinoFragmentListener) {
+            listener = (VecinoFragmentListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

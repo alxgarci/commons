@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -16,21 +15,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.agmmps.commons.fragments.BusquedaVecinosFragment;
-import com.agmmps.commons.fragments.EditarPerfilFragment;
 import com.agmmps.commons.fragments.InicioFragment;
 import com.agmmps.commons.fragments.PerfilFragment;
 import com.agmmps.commons.fragments.ResultBusqVecFragment;
 import com.agmmps.commons.fragments.VecinoFragment;
 import com.agmmps.commons.javabeans.Usuario;
 import com.agmmps.commons.listeners.BusqVecFragmentListener;
-import com.agmmps.commons.listeners.InicioFragmentListener;
+import com.agmmps.commons.listeners.VecinoFragmentListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements InicioFragmentListener, BusqVecFragmentListener {
+public class MainActivity extends AppCompatActivity implements VecinoFragmentListener, BusqVecFragmentListener {
 
     TextView titulo;
     BottomNavigationView bottom;
@@ -99,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements InicioFragmentLis
         toolbar.getMenu().clear();
         if (i == 0) {
             toolbar.inflateMenu(R.menu.ajustes_perfil);
-            toolbar.getOverflowIcon().setTint(getResources().getColor(color.colorPrimary));
+            toolbar.getOverflowIcon().setTint(getResources().getColor(R.color.colorPrimary));
         }
     }
 

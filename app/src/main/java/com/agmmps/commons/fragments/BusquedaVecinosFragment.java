@@ -17,7 +17,6 @@ import com.agmmps.commons.javabeans.Anuncio;
 import com.agmmps.commons.javabeans.Datos;
 import com.agmmps.commons.javabeans.Usuario;
 import com.agmmps.commons.listeners.BusqVecFragmentListener;
-import com.agmmps.commons.listeners.InicioFragmentListener;
 import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
