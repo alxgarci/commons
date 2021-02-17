@@ -42,6 +42,7 @@ public class PerfilFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
 
     }
 
@@ -54,8 +55,6 @@ public class PerfilFragment extends Fragment {
         tvUbicacion = view.findViewById(R.id.tvFragmentUbica);
         tvDes = view.findViewById(R.id.tvFragmentDes);
         tvDescripcion =  view.findViewById(R.id.tvFragmentDescripcion);
-        btnEditar = view.findViewById(R.id.btnFragmentEditar);
-        btnAjustes = view.findViewById(R.id.btnFragmentAjustes);
         Glide.with(this)
                 .load(R.drawable.usuario_3)
                 .placeholder(R.drawable.ic_logo_usuarios)

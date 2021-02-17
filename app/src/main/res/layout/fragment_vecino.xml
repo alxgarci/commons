@@ -6,13 +6,20 @@
     tools:context=".fragments.ResultBusqVecFragment"
     android:orientation="vertical">
 
+    <ImageButton
+        android:id="@+id/backVecino"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_arrow_back_2"
+        android:background="@color/colorTransparent"
+        />
+
     <ImageView
         android:id="@+id/im_fragment_vecino"
         android:layout_width="269dp"
         android:layout_height="178dp"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/ic_logo_usuarios" />
+        android:layout_marginTop="100dp"/>
 
     <TextView
         android:id="@+id/tvFragmentNombre"
