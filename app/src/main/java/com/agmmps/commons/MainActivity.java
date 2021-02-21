@@ -11,10 +11,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.agmmps.commons.fragments.AnuncioFragment;
 import com.agmmps.commons.fragments.BusquedaVecinosFragment;
+import com.agmmps.commons.fragments.EditarPerfilFragment;
 import com.agmmps.commons.fragments.InicioFragment;
 import com.agmmps.commons.fragments.PerfilFragment;
 import com.agmmps.commons.fragments.ResultBusqVecFragment;
@@ -29,13 +32,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements VecinoFragmentListener, BusqVecFragmentListener, VolverListener {
-//y
+//ui
     TextView titulo;
     BottomNavigationView bottom;
     FloatingActionButton fab;
     FrameLayout flMain;
     Toolbar toolbar;
     ArrayList listaVecinosBackup;
+    Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,17 +56,23 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
         titulo.setText(R.string.main_home);
         toolbar = findViewById(R.id.tbToolbarMain);
         listaVecinosBackup = new ArrayList<Usuario>();
+        usuario = new Usuario();
         fab.show();
 
         addFragment(1);
 
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "FAB Clicked.", Toast.LENGTH_SHORT).show();
-//                addFragment(2);
-//            }
-//        });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                AnuncioFragment afg = new AnuncioFragment().newInstance(usuario);
+                ft.replace(R.id.flMain, afg);
+                ft.addToBackStack(null);
+                ft.commit();
+
+            }
+        });
 
         //Listener del BottomNavigationView
         bottom.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -99,6 +109,33 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
         if (i == 0) {
             toolbar.inflateMenu(R.menu.ajustes_perfil);
             toolbar.getOverflowIcon().setTint(getResources().getColor(R.color.colorPrimary));
+
+            toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.id.itmEditarPerfil:
+                            FragmentManager fm = getSupportFragmentManager();
+                            FragmentTransaction ft = fm.beginTransaction();
+                            EditarPerfilFragment edp = new EditarPerfilFragment().newInstance();
+                            ft.replace(R.id.flMain, edp);
+                            ft.addToBackStack(null);
+                            ft.commit();
+                            break;
+                        case R.id.itmPrivatePolicy:
+                            break;
+                        case R.id.itmAboutUs:
+                            break;
+                        case R.id.itmLogOut:
+                            break;
+                    }
+
+
+
+                    return false;
+                }
+            });
+
         }
     }
 
@@ -123,6 +160,11 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
                 break;
             case R.id.itmUsuario:
                 titulo.setText(R.string.main_profile);
+
+                //TEST CENTRAR TEXTO
+                titulo.setGravity(View.TEXT_ALIGNMENT_TEXT_START);
+                titulo.setPadding(380, 0, 0, 0);
+
                 PerfilFragment pf = new PerfilFragment().newInstance();
                 ft.replace(R.id.flMain, pf);
                 ft.addToBackStack(null);
@@ -200,6 +242,7 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
     public void backInicio() {
 
         addFragment(R.id.itmHome);
+
     }
 
     @Override
@@ -210,7 +253,7 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
 
     @Override
     public void backBusqueda() {
-
+        addFragment(R.id.itmBuscar);
     }
 
 //    private void disableHomeAsUp() {

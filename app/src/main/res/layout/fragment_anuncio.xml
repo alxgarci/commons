@@ -6,11 +6,18 @@
     android:orientation="vertical"
     tools:context=".fragments.AnuncioFragment">
 
+    <ImageButton
+        android:id="@+id/backAnuncio"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_arrow_back_2"
+        android:background="@color/colorTransparent"/>
+
     <LinearLayout
         android:id="@+id/llAnuncioFrag"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:orientation="vertical">
