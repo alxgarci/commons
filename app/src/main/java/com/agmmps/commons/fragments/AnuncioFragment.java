@@ -1,15 +1,21 @@
 package com.agmmps.commons.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.agmmps.commons.R;
+import com.agmmps.commons.javabeans.Usuario;
+import com.agmmps.commons.listeners.VolverListener;
 
 
 public class AnuncioFragment extends Fragment {
@@ -23,16 +29,20 @@ public class AnuncioFragment extends Fragment {
 //    private String mParam2;
 
     EditText etAnuncio;
+    Usuario usuario;
+    ImageButton imgB;
+    Button btnPublicar;
+    VolverListener listener;
 
     public AnuncioFragment() {
 
     }
 
-    public static AnuncioFragment newInstance() {
+    public AnuncioFragment newInstance(Usuario usuario) {
         AnuncioFragment fragment = new AnuncioFragment();
         Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
+        args.putParcelable("VECINO", usuario);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -40,10 +50,9 @@ public class AnuncioFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
+         if (getArguments() != null) {
+            usuario = getArguments().getParcelable("VECINO");
+        }
     }
 
     @Override
@@ -52,7 +61,42 @@ public class AnuncioFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_anuncio, container, false);
 
         etAnuncio = view.findViewById(R.id.etAnuncioFrag);
+        imgB = view.findViewById(R.id.backAnuncio);
+        btnPublicar = view.findViewById(R.id.btnAnuncioFragPublicar);
+
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.backInicio();
+            }
+        });
+
+        btnPublicar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: Publicar anuncio en firebase
+                listener.backInicio();
+            }
+        });
 
         return view;
     }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (context instanceof VolverListener) {
+            listener = (VolverListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
+
 }

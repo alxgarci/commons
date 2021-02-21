@@ -11,12 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.agmmps.commons.R;
 import com.agmmps.commons.javabeans.ResultBusqVecAdapter;
 import com.agmmps.commons.javabeans.Usuario;
 import com.agmmps.commons.listeners.VecinoFragmentListener;
+import com.agmmps.commons.listeners.VolverListener;
 
 import java.util.ArrayList;
 
@@ -28,9 +31,11 @@ import java.util.ArrayList;
 public class ResultBusqVecFragment extends Fragment {
 
     private RecyclerView rv;
-    private VecinoFragmentListener listener;
+    private VecinoFragmentListener listenerVecino;
     ArrayList<Usuario> listaVecinos;
-    ImageView back;
+    ImageButton imgB;
+    VolverListener listenerVolver;
+
 
     public ResultBusqVecFragment() {
         // Required empty public constructor
@@ -60,9 +65,14 @@ public class ResultBusqVecFragment extends Fragment {
 
 
         rv = view.findViewById(R.id.rvResultBusqVec);
-        back = view.findViewById(R.id.backResultados);
+        imgB = view.findViewById(R.id.backResultados);
 
-        //TODO: LISTENER FLECHA
+        imgB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listenerVolver.backBusqueda();
+            }
+        });
 
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -74,7 +84,7 @@ public class ResultBusqVecFragment extends Fragment {
             public void onClick(View v) {
                 int i = rv.getChildAdapterPosition(v);
                 Usuario usuario = listaVecinos.get(i);
-                listener.accederVecinoBusqueda(usuario);
+                listenerVecino.accederVecinoBusqueda(usuario);
             }
         });
         rv.setAdapter(rbvAdap);
@@ -86,7 +96,14 @@ public class ResultBusqVecFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof VecinoFragmentListener) {
-            listener = (VecinoFragmentListener) context;
+            listenerVecino = (VecinoFragmentListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+
+        if (context instanceof VolverListener) {
+            listenerVolver = (VolverListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -96,7 +113,8 @@ public class ResultBusqVecFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        listener = null;
+        listenerVecino = null;
+        listenerVolver = null;
     }
 
 }
