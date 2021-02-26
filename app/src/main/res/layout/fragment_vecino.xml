@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ResultBusqVecFragment"
     android:orientation="vertical">
 
@@ -19,7 +20,7 @@
         android:layout_width="269dp"
         android:layout_height="178dp"
         android:layout_gravity="center"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="12dp"/>
 
     <TextView
         android:id="@+id/tvFragmentNombre"
@@ -30,28 +31,56 @@
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
         android:textSize="24sp" />
-    <TextView
-        android:id="@+id/tvFragmentUbica"
+    <LinearLayout
+        android:id="@+id/llVecinoUbicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="@string/tv_fragment_ubicacion"/>
+        android:gravity="center"
+        android:layout_marginBottom="26dp">
+        <ImageView
+            android:id="@+id/icUbicacionVecino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location"/>
+        <TextView
+            android:id="@+id/tvFragmentUbica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/colorPrimaryLight"
+            android:text="@string/tv_fragment_ubicacion"/>
+    </LinearLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcCardViewVecino"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:strokeWidth="1dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/stroke_cardview_vecino">
+        <LinearLayout
+            android:id="@+id/llVecinoDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/tvFragmentDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_fragment_desc"
+                android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/tvFragmentDes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_fragment_desc"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="80dp"/>
+            <TextView
+                android:id="@+id/tvFragmentDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_fragment_descripcion"/>
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvFragmentDescripcion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="@string/tv_fragment_descripcion"/>
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 
 </LinearLayout>

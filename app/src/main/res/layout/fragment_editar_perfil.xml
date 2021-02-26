@@ -3,15 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragments.EditarPerfilFragment">
 
     <LinearLayout
         android:id="@+id/ll1EditPerfFrag"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="40dp"
         android:orientation="horizontal">
 
@@ -19,18 +20,19 @@
             android:id="@+id/tvEditPerfFragTitNom"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="26dp"
             android:layout_weight="1"
-            android:text="Nombre"
+            android:text="@string/tv_signup_nombre"
             android:textColor="@color/colorPrimary"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lEditPerfFragNom"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="3">
+            android:layout_weight="6"
+            style="@style/myInputTextMain">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEditPerfFragNom"
@@ -49,7 +51,7 @@
     <LinearLayout
         android:id="@+id/ll2EditPerfFrag"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:orientation="horizontal">
@@ -58,18 +60,19 @@
             android:id="@+id/tvEditPerfFragTitBarrio"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="26dp"
             android:layout_weight="1"
-            android:text="Barrio"
+            android:text="@string/tv_signup_barrio"
             android:textColor="@color/colorPrimary"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lEditPerfFragBarrio"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2">
+            android:layout_weight="5"
+            style="@style/myInputTextMain">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEditPerfFragBarrio"
@@ -88,7 +91,7 @@
     <LinearLayout
         android:id="@+id/ll3EditPerfFrag"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:orientation="horizontal">
@@ -97,18 +100,19 @@
             android:id="@+id/tvEditPerfFragTitCorreo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="26dp"
             android:layout_weight="1"
-            android:text="Correo"
+            android:text="@string/tv_editarperfil_correo"
             android:textColor="@color/colorPrimary"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lEditPerfFragCorreo"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="3"
+            style="@style/myInputTextMain">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEditPerfFragCorreo"
@@ -127,7 +131,7 @@
     <LinearLayout
         android:id="@+id/ll4EditPerfFrag"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:orientation="horizontal">
@@ -136,26 +140,29 @@
             android:id="@+id/tvEditPerfFragTitPW"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="26dp"
             android:layout_weight="1"
-            android:text="Contraseña"
+            android:text="@string/et_signup_contraseña"
             android:textColor="@color/colorPrimary"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lEditPerfFragPW"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="3">
+            android:layout_weight="6"
+            app:passwordToggleEnabled="true"
+            style="@style/myInputTextMain">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEditPerfFragPW"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="60dp"
                 android:layout_marginStart="-8dp"
                 android:background="@color/colorTransparent"
                 android:fontFamily="@font/montserrat"
+                android:inputType="textPassword"
                 android:text="tomate1234"
                 android:textColor="@color/colorPrimary" />
 
@@ -175,11 +182,11 @@
             android:id="@+id/tvEditPerfFragTitDescrip"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="26dp"
             android:layout_weight="1"
-            android:text="Descripción"
+            android:text="@string/tv_editarperfil_descripcion"
             android:textColor="@color/colorPrimary"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"/>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -187,7 +194,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginTop="-16dp">
+            android:layout_marginTop="-16dp"
+            style="@style/myInputTextMain">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEditPerfFragDescrip"
@@ -210,7 +218,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:text="Guardar"
+        android:text="@string/btn_guardar"
         android:textSize="22sp"
         style="@style/ButtonOrange"/>
 

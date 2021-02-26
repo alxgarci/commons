@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.BusquedaVecinosFragment"
     android:orientation="vertical"
-    android:padding="6dp"
+    android:padding="12dp"
     android:layout_marginBottom="116dp">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -41,37 +41,37 @@
             app:singleLine="true">
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chChamartin"
+                android:id="@+id/ch1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chamartin"
+                android:text="1km"
                 style="@style/Widget.App.Chip"/>
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chVillaverde"
+                android:id="@+id/ch3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Villaverde Alto"
+                android:text="3km"
                 style="@style/Widget.App.Chip"/>
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chSalamanca"
+                android:id="@+id/ch5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Barrio de Salamanca"
+                android:text="5km"
                 style="@style/Widget.App.Chip"/>
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chBernabeu"
+                android:id="@+id/ch10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bernabeu"
+                android:text="10km"
                 style="@style/Widget.App.Chip"/>
             <com.google.android.material.chip.Chip
-                android:id="@+id/chBellasVistas"
+                android:id="@+id/ch25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="BellasVistas"
+                android:text="25km"
                 style="@style/Widget.App.Chip"/>
 
         </com.google.android.material.chip.ChipGroup>
