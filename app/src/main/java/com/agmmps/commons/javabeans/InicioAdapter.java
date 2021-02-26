@@ -68,7 +68,7 @@ public class InicioAdapter extends RecyclerView.Adapter<InicioAdapter.AnuncioVie
         }
 
         public void bindItem(Anuncio anuncio) {
-            imagenUsu.setImageResource(anuncio.getUsuario().getIdImagen());
+            imagenUsu.setImageResource(anuncio.getUsuario().getId_imagen());
             nombreUsu.setText(anuncio.getUsuario().getNombre());
             dist.setText(anuncio.getUsuario().getBarrio());
             descripAnun.setText(anuncio.getDescripAnun());

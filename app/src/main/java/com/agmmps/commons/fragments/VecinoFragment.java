@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.agmmps.commons.R;
 import com.agmmps.commons.javabeans.Usuario;
-import com.agmmps.commons.listeners.VecinoFragmentListener;
 import com.agmmps.commons.listeners.VolverListener;
 import com.bumptech.glide.Glide;
 
@@ -80,7 +79,7 @@ public class VecinoFragment extends Fragment {
         });
 
         Glide.with(this)
-                .load(usuario.getIdImagen())
+                .load(usuario.getId_imagen())
                 .placeholder(R.drawable.ic_logo_usuarios)
                 .circleCrop()
                 .into(imPerfil);
