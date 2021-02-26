@@ -72,7 +72,7 @@ public class LogIn extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 user = fba.getCurrentUser();
-                                //accederMain();
+                                accederMain();
 
                             } else {
                                 Toast.makeText(LogIn.this, "No accede" + "\n" +task.getException().getMessage(),
