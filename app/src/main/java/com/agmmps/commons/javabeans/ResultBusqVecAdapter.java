@@ -67,7 +67,7 @@ public class ResultBusqVecAdapter extends RecyclerView.Adapter<ResultBusqVecAdap
         }
 
         public void bindItem(Usuario usuario) {
-            imagenUsu.setImageResource(usuario.getIdImagen());
+            imagenUsu.setImageResource(usuario.getId_imagen());
             nombreUsu.setText(usuario.getNombre());
             dist.setText(usuario.getBarrio());
         }
