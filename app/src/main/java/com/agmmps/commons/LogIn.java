@@ -36,7 +36,7 @@ public class LogIn extends AppCompatActivity {
 
     ArrayList<Usuario> listaUsuarios;
     Usuario usuario;
-
+//i
     String correo;
     String password;
 
@@ -99,14 +99,14 @@ public class LogIn extends AppCompatActivity {
 
     public void abrirSignup(View view) {
 
-        for (Usuario usuarioDB: listaUsuarios) {
-            if (correo.equals(usuarioDB.getCorreo()) && password.equals(usuarioDB.getPassword())) {
-                usuario = usuarioDB;
-            }
-        }
-
-        Toast.makeText(LogIn.this, "tenemos usuario", Toast.LENGTH_SHORT).show();
-        System.out.println("-------------------------------------" + usuario.getBarrio());
+//        for (Usuario usuarioDB: listaUsuarios) {
+//            if (correo.equals(usuarioDB.getCorreo()) && password.equals(usuarioDB.getPassword())) {
+//                usuario = usuarioDB;
+//            }
+//        }
+//
+//        Toast.makeText(LogIn.this, "tenemos usuario", Toast.LENGTH_SHORT).show();
+//        System.out.println("-------------------------------------" + usuario.getBarrio());
 
 //        Intent i = new Intent(this, SignUp.class);
 //        startActivity(i);
