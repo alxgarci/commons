@@ -78,13 +78,17 @@ public class VecinoFragment extends Fragment {
             }
         });
 
+
+
         Glide.with(this)
                 .load(usuario.getId_imagen())
                 .placeholder(R.drawable.ic_logo_usuarios)
                 .circleCrop()
                 .into(imPerfil);
 
-        //TODO: cargar los datos del vecino en el fragment
+        tvNombre.setText(usuario.getNombre());
+        tvUbicacion.setText(usuario.getBarrio());
+        tvDescripcion.setText(usuario.getDescripcion());
 
         return view;
     }

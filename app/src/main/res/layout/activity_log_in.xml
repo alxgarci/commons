@@ -39,7 +39,8 @@
             android:background="@color/colorTransparent"
             android:hint="@string/hint_login_usuario"
             android:textColor="@color/colorBackground"
-            android:fontFamily="@font/montserrat"/>
+            android:fontFamily="@font/montserrat"
+            android:inputType="textEmailAddress"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

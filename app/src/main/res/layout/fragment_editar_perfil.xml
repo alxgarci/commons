@@ -41,7 +41,6 @@
                 android:layout_marginStart="-8dp"
                 android:background="@color/colorTransparent"
                 android:fontFamily="@font/montserrat"
-                android:text="Julia Ramirez"
                 android:textColor="@color/colorPrimary" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -81,7 +80,6 @@
                 android:layout_marginStart="-8dp"
                 android:background="@color/colorTransparent"
                 android:fontFamily="@font/montserrat"
-                android:text="Chamartin"
                 android:textColor="@color/colorPrimary" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -121,7 +119,6 @@
                 android:layout_marginStart="-8dp"
                 android:background="@color/colorTransparent"
                 android:fontFamily="@font/montserrat"
-                android:text="julita88@gmail.com"
                 android:textColor="@color/colorPrimary" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -163,7 +160,7 @@
                 android:background="@color/colorTransparent"
                 android:fontFamily="@font/montserrat"
                 android:inputType="textPassword"
-                android:text="tomate1234"
+
                 android:textColor="@color/colorPrimary" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -199,12 +196,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEditPerfFragDescrip"
-                android:layout_width="match_parent"
+                android:layout_width="340dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="-8dp"
                 android:background="@color/colorTransparent"
                 android:fontFamily="@font/montserrat"
-                android:text="@string/tv_fragment_descripcion"
                 android:textColor="@color/colorPrimary" />
 
         </com.google.android.material.textfield.TextInputLayout>

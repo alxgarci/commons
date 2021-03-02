@@ -25,17 +25,20 @@ import java.util.ArrayList;
 
 public class LogIn extends AppCompatActivity {
 
+    public static final String COD_UL = "UL";
+
     EditText etUsuario;
     EditText etPassword;
 
     private FirebaseAuth fba;
     private FirebaseUser user;
 
-    DatabaseReference dbRef;
-    ValueEventListener vel;
-
-    ArrayList<Usuario> listaUsuarios;
-    Usuario usuario;
+//    DatabaseReference dbRef;
+//    ValueEventListener vel;
+//
+//    ArrayList<Usuario> listaUsuarios;
+//    Usuario usuario;
+//    Usuario usuLoged;
 
     String correo;
     String password;
@@ -50,7 +53,7 @@ public class LogIn extends AppCompatActivity {
         etUsuario = findViewById(R.id.etLoginUsuario);
         etPassword = findViewById(R.id.etLoginPassword);
 
-        dbRef = FirebaseDatabase.getInstance().getReference("datos/usuarios");
+        //dbRef = FirebaseDatabase.getInstance().getReference("datos/usuarios");
 
         fba = FirebaseAuth.getInstance();
         user = fba.getCurrentUser();
@@ -64,7 +67,7 @@ public class LogIn extends AppCompatActivity {
         password = etPassword.getText().toString().trim();
 
         if (correo.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "faltan datos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Introduce todos los datos", Toast.LENGTH_SHORT).show();
         } else {
             fba.signInWithEmailAndPassword(correo, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -72,10 +75,11 @@ public class LogIn extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 user = fba.getCurrentUser();
+                                //addListener();
                                 accederMain();
 
                             } else {
-                                Toast.makeText(LogIn.this, "No accede" + "\n" +task.getException().getMessage(),
+                                Toast.makeText(LogIn.this, "El usuario introducido no existe en la base de datos",
                                         Toast.LENGTH_SHORT).show();
                             }
 
@@ -92,6 +96,7 @@ public class LogIn extends AppCompatActivity {
 
     private void accederMain() {
         Intent i = new Intent(this, MainActivity.class);
+        //i.putExtra(COD_UL, usuLoged);
         startActivity(i);
         finish();
     }
@@ -99,65 +104,49 @@ public class LogIn extends AppCompatActivity {
 
     public void abrirSignup(View view) {
 
-        for (Usuario usuarioDB: listaUsuarios) {
-            if (correo.equals(usuarioDB.getCorreo()) && password.equals(usuarioDB.getPassword())) {
-                usuario = usuarioDB;
-            }
-        }
-
-        Toast.makeText(LogIn.this, "tenemos usuario", Toast.LENGTH_SHORT).show();
-        System.out.println("-------------------------------------" + usuario.getBarrio());
-
-//        Intent i = new Intent(this, SignUp.class);
-//        startActivity(i);
+        Intent i = new Intent(this, SignUp.class);
+        startActivity(i);
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        addListener();
-    }
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        addListener();
+//    }
 
-    private void addListener() {
-        if (vel == null) {
-            vel = new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-//                    for (DataSnapshot dss: dataSnapshot.getChildren()) {
+//    private void addListener() {
+//        if (vel == null) {
+//            vel = new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //
-//                        usuario= dss.getValue(Usuario.class);
-//                        listaUsuarios.add(usuario);
+//                    usuLoged = dataSnapshot.getValue(Usuario.class);
 //
+//                }
 //
-//                    }
-
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(LogIn.this, "Error de lectura", Toast.LENGTH_SHORT).show();
-                }
-            };
-            dbRef.addValueEventListener(vel);
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        removeListener();
-    }
-
-    private void removeListener() {
-        if (vel != null) {
-            dbRef.removeEventListener(vel);
-            vel = null;
-        }
-
-    }
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//                    Toast.makeText(LogIn.this, "Error de lectura", Toast.LENGTH_SHORT).show();
+//                }
+//            };
+//            dbRef.child(user.getUid()).addValueEventListener(vel);
+//        }
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        removeListener();
+//    }
+//
+//    private void removeListener() {
+//        if (vel != null) {
+//            dbRef.removeEventListener(vel);
+//            vel = null;
+//        }
+//
+//    }
 
 
 }

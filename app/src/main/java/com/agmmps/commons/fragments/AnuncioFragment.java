@@ -12,37 +12,41 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.agmmps.commons.R;
+import com.agmmps.commons.javabeans.Anuncio;
 import com.agmmps.commons.javabeans.Usuario;
 import com.agmmps.commons.listeners.VolverListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class AnuncioFragment extends Fragment {
 
 
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//
-//    private String mParam1;
-//    private String mParam2;
-
     EditText etAnuncio;
-    Usuario usuario;
     ImageButton imgB;
     Button btnPublicar;
+
     VolverListener listener;
+
+    private FirebaseAuth fba;
+    private FirebaseUser user;
+    DatabaseReference dr;
+
+    Anuncio anuncio;
+    Usuario usuario;
 
     public AnuncioFragment() {
 
     }
 
-    public AnuncioFragment newInstance(Usuario usuario) {
+    public AnuncioFragment newInstance() {
         AnuncioFragment fragment = new AnuncioFragment();
         Bundle args = new Bundle();
-        args.putParcelable("VECINO", usuario);
-
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,9 +54,7 @@ public class AnuncioFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         if (getArguments() != null) {
-            usuario = getArguments().getParcelable("VECINO");
-        }
+
     }
 
     @Override
@@ -74,8 +76,31 @@ public class AnuncioFragment extends Fragment {
         btnPublicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Publicar anuncio en firebase
-                listener.backInicio();
+
+                String descripAnun = etAnuncio.getText().toString().trim();
+
+                if (descripAnun.isEmpty()) {
+
+                    Toast.makeText(getContext(), "Debes rellenar el anuncio!", Toast.LENGTH_SHORT).show();
+
+                } else {
+
+                    dr = FirebaseDatabase.getInstance().getReference("datos");
+                    fba = FirebaseAuth.getInstance();
+                    user = fba.getCurrentUser();
+
+                    anuncio = new Anuncio(descripAnun, user.getUid() ,null);
+
+                    dr.child("anuncios").push().setValue(anuncio);
+
+
+                    Toast.makeText(getContext(), "Anuncio publicado!", Toast.LENGTH_SHORT).show();
+
+                    listener.backInicio();
+
+                }
+
+
             }
         });
 
