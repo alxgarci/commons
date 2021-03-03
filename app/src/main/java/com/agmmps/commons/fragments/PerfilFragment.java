@@ -25,6 +25,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 
 public class PerfilFragment extends Fragment {
@@ -39,9 +41,10 @@ public class PerfilFragment extends Fragment {
 
     FirebaseAuth fba;
     FirebaseUser user;
-
     DatabaseReference dbRef;
+    StorageReference mFotoStorageRef;
     ValueEventListener vel;
+
     Usuario usuLoged;
 
     public PerfilFragment() {
@@ -75,12 +78,7 @@ public class PerfilFragment extends Fragment {
         fba = FirebaseAuth.getInstance();
         user = fba.getCurrentUser();
         dbRef = FirebaseDatabase.getInstance().getReference("datos/usuarios");
-
-
-        fba = FirebaseAuth.getInstance();
-        user = fba.getCurrentUser();
-
-
+        mFotoStorageRef = FirebaseStorage.getInstance().getReference().child("FotosUsuarios");
 
         return view;
 
