@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,18 +29,29 @@ import com.agmmps.commons.listeners.VecinoFragmentListener;
 import com.agmmps.commons.listeners.VolverListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements VecinoFragmentListener, BusqVecFragmentListener, VolverListener {
-//uig
+
     TextView titulo;
     BottomNavigationView bottom;
     FloatingActionButton fab;
     FrameLayout flMain;
     Toolbar toolbar;
     ArrayList listaVecinosBackup;
-    Usuario usuario;
+
+    //Usuario usuLoged;
+
+    FirebaseAuth fba;
+    FirebaseUser user;
+
+    //DatabaseReference dbRef;
+    ValueEventListener vel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +65,15 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
         titulo = findViewById(R.id.tvMainTitulo);
         fab = findViewById(R.id.fabMain);
         flMain = findViewById(R.id.flMain);
-        titulo.setText(R.string.main_home);
         toolbar = findViewById(R.id.tbToolbarMain);
+
+        fba = FirebaseAuth.getInstance();
+        user = fba.getCurrentUser();
+
+        titulo.setText(R.string.main_home);
+
         listaVecinosBackup = new ArrayList<Usuario>();
-        usuario = new Usuario();
+
         fab.show();
 
         addFragment(1);
@@ -66,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
             public void onClick(View view) {
                 FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
-                AnuncioFragment afg = new AnuncioFragment().newInstance(usuario);
+                AnuncioFragment afg = new AnuncioFragment().newInstance();
                 ft.replace(R.id.flMain, afg);
                 ft.addToBackStack(null);
                 ft.commit();
@@ -127,6 +144,11 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
                         case R.id.itmAboutUs:
                             break;
                         case R.id.itmLogOut:
+                            fba.signOut();
+                            Intent i = new Intent(getApplicationContext(), Splash.class);
+                            startActivity(i);
+                            finish();
+
                             break;
                     }
 
@@ -255,6 +277,52 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
     public void backBusqueda() {
         addFragment(R.id.itmBuscar);
     }
+
+    @Override
+    public void backPerfil() {
+        addFragment(R.id.itmUsuario);
+    }
+
+//        @Override
+//    protected void onResume() {
+//        super.onResume();
+//        addListener();
+//    }
+//
+//    private void addListener() {
+//        if (vel == null) {
+//            vel = new ValueEventListener() {
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                    usuLoged = dataSnapshot.getValue(Usuario.class);
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//                    Toast.makeText(LogIn.this, "Error de lectura", Toast.LENGTH_SHORT).show();
+//                }
+//            };
+//            dbRef.child(user.getUid()).addValueEventListener(vel);
+//        }
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        removeListener();
+//    }
+//
+//    private void removeListener() {
+//        if (vel != null) {
+//            dbRef.removeEventListener(vel);
+//            vel = null;
+//        }
+//
+//    }
+
+
 
 //    private void disableHomeAsUp() {
 //        actionBar = getSupportActionBar();

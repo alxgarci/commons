@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 public class Usuario implements Parcelable {
 
-    private int id_usuario;
+   // private int id_usuario;
     private int id_imagen;
     private String correo;
     private String password;
@@ -16,8 +16,8 @@ public class Usuario implements Parcelable {
     public Usuario() {
     }
 
-    public Usuario(int id_usuario, int id_imagen, String correo, String password, String nombre, String barrio, String descripcion) {
-        this.id_usuario = id_usuario;
+    public Usuario(int id_imagen, String correo, String password, String nombre, String barrio, String descripcion) {
+//        this.id_usuario = id_usuario;
         this.id_imagen = id_imagen;
         this.correo = correo;
         this.password = password;
@@ -43,8 +43,8 @@ public class Usuario implements Parcelable {
     }
 
     protected Usuario(Parcel in) {
-        id_usuario = in.readInt();
-        id_imagen = in.readInt();
+//        id_usuario = in.readInt();
+//        id_imagen = in.readInt();
         correo = in.readString();
         password = in.readString();
         nombre = in.readString();
@@ -64,14 +64,14 @@ public class Usuario implements Parcelable {
         }
     };
 
-    public int getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
-    }
-
+//    public int getId_usuario() {
+//        return id_usuario;
+//    }
+//
+//    public void setId_usuario(int id_usuario) {
+//        this.id_usuario = id_usuario;
+//    }
+//
     public int getId_imagen() {
         return id_imagen;
     }
@@ -112,8 +112,8 @@ public class Usuario implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id_usuario);
-        dest.writeInt(id_imagen);
+//        dest.writeInt(id_usuario);
+//        dest.writeInt(id_imagen);
         dest.writeString(correo);
         dest.writeString(password);
         dest.writeString(nombre);

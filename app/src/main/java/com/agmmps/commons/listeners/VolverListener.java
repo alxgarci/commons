@@ -6,4 +6,7 @@ public interface VolverListener {
     public void backResBusqueda();
 
     public void backBusqueda();
+
+    public void backPerfil();
+
 }

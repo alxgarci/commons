@@ -1,6 +1,7 @@
 package com.agmmps.commons.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +27,7 @@ public class VecinoFragment extends Fragment {
     TextView tvDes;
     TextView tvDescripcion;
     ImageView imPerfil;
+    Button btnEmail;
 
     Usuario usuario;
     ImageButton back;
@@ -65,6 +68,19 @@ public class VecinoFragment extends Fragment {
         tvDes = view.findViewById(R.id.tvFragmentDes);
         tvDescripcion =  view.findViewById(R.id.tvFragmentDescripcion);
         back = view.findViewById(R.id.backVecino);
+        btnEmail = view.findViewById(R.id.btnEmailContacto);
+
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(Intent.ACTION_SEND);
+                it.putExtra(Intent.EXTRA_EMAIL, new String[]{usuario.getCorreo()});
+                it.putExtra(Intent.EXTRA_SUBJECT, "Contacto por un anuncio en Commons");
+                it.putExtra(Intent.EXTRA_TEXT, "Cuerpo del mensaje");
+                it.setType("text/plain");
+                startActivity(Intent.createChooser(it,"Elige la aplicación de correo"));
+            }
+        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,13 +94,17 @@ public class VecinoFragment extends Fragment {
             }
         });
 
+
+
         Glide.with(this)
                 .load(usuario.getId_imagen())
                 .placeholder(R.drawable.ic_logo_usuarios)
                 .circleCrop()
                 .into(imPerfil);
 
-        //TODO: cargar los datos del vecino en el fragment
+        tvNombre.setText(usuario.getNombre());
+        tvUbicacion.setText(usuario.getBarrio());
+        tvDescripcion.setText(usuario.getDescripcion());
 
         return view;
     }

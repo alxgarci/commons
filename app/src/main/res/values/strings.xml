@@ -2,7 +2,7 @@
     <!-- ventana_componente_loquehace  Ej: tv_login_faltandatos -->
     <string name="app_name">Commons</string>
     <string name="tv_login_tit">Log In</string>
-    <string name="hint_login_usuario">Usuario</string>
+    <string name="hint_login_usuario">Nombre</string>
     <string name="hint_login_password">Contraseña</string>
     <string name="btn_login_acceder">Log In</string>
     <string name="tv_login_signup">Sign Up</string>
@@ -49,4 +49,5 @@
     <string name="tv_editarperfil_correo">Correo</string>
     <string name="tv_editarperfil_descripcion">Descripción</string>
     <string name="btn_guardar">Guardar</string>
+    <string name="btn_fragment_vecinos_email">Contactar</string>
 </resources>
