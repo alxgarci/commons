@@ -139,6 +139,10 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
                             ft.addToBackStack(null);
                             ft.commit();
                             break;
+                        case R.id.itmEditarImagen:
+                            //TODO: CAMBIAR IMAGEN PERFIL
+                            Toast.makeText(MainActivity.this, "CAMBIAR IMAGEN", Toast.LENGTH_SHORT).show();
+                            break;
                         case R.id.itmPrivatePolicy:
                             break;
                         case R.id.itmAboutUs:

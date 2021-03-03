@@ -19,14 +19,13 @@
         android:id="@+id/im_fragment_vecino"
         android:layout_width="269dp"
         android:layout_height="178dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="12dp"/>
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/tvFragmentNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="12dp"
         android:text="@string/tv_fragment_nombre"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
@@ -80,6 +79,17 @@
 
 
     </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEmailContacto"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_gravity="center"
+        app:icon="@drawable/ic_outline_email_24"
+        app:iconGravity="textStart"
+        android:text="@string/btn_fragment_vecinos_email"
+        style="@style/ButtonGreen"/>
 
 
 
