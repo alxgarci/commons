@@ -11,12 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.agmmps.commons.R;
 import com.agmmps.commons.javabeans.Usuario;
 import com.agmmps.commons.listeners.VolverListener;
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,6 +39,8 @@ public class EditarPerfilFragment extends Fragment {
     EditText etDescrip;
     Button btnEditar;
     Toolbar toolbar;
+    ImageButton imbEditarImagen;
+    ImageView imageView;
 
     FirebaseAuth fba;
     FirebaseUser user;
@@ -76,6 +81,8 @@ public class EditarPerfilFragment extends Fragment {
         etPassword = view.findViewById(R.id.etEditPerfFragPW);
         etDescrip = view.findViewById(R.id.etEditPerfFragDescrip);
         btnEditar = view.findViewById(R.id.btnEditPerfFragGuardar);
+        imbEditarImagen = view.findViewById(R.id.imbEditarImagenPerfil);
+        imageView = view.findViewById(R.id.im_fragment_editar_perfil);
 
         fba = FirebaseAuth.getInstance();
         user = fba.getCurrentUser();
@@ -84,6 +91,14 @@ public class EditarPerfilFragment extends Fragment {
 
         fba = FirebaseAuth.getInstance();
         user = fba.getCurrentUser();
+
+        imbEditarImagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "EDITAR IMAGEN", Toast.LENGTH_SHORT).show();
+                //TODO:
+            }
+        });
 
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +153,11 @@ public class EditarPerfilFragment extends Fragment {
     }
 
     private void cargarDatosUsuario() {
+        Glide.with(this)
+                .load(R.drawable.usuario_1)
+                .placeholder(R.drawable.ic_logo_usuarios)
+                .circleCrop()
+                .into(imageView);
         etNombre.setText(usuLoged.getNombre());
         etBarrio.setText(usuLoged.getBarrio());
         etDescrip.setText(usuLoged.getDescripcion());
