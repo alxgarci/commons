@@ -2,6 +2,7 @@ package com.agmmps.commons.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -73,12 +74,9 @@ public class VecinoFragment extends Fragment {
         btnEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(Intent.ACTION_SEND);
-                it.putExtra(Intent.EXTRA_EMAIL, new String[]{usuario.getCorreo()});
-                it.putExtra(Intent.EXTRA_SUBJECT, "Contacto por un anuncio en Commons");
-                it.putExtra(Intent.EXTRA_TEXT, "Cuerpo del mensaje");
-                it.setType("text/plain");
-                startActivity(Intent.createChooser(it,"Elige la aplicación de correo"));
+                Intent it = new Intent(Intent.ACTION_SENDTO);
+                it.setData(Uri.parse("mailto:" + usuario.getCorreo()));
+                startActivity(it);
             }
         });
 
