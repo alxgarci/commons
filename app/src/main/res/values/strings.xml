@@ -53,4 +53,5 @@
     <string name="perfil_modificado_ok">Tu perfil ha sido modificado con éxito.</string>
     <string name="anuncio_creado_err">No se ha podido publicar el anuncio.</string>
     <string name="anuncio_creado_ok">Se ha publicado el anuncio correctamente.</string>
+    <string name="selecciona_imagen">Selecciona una imagen</string>
 </resources>

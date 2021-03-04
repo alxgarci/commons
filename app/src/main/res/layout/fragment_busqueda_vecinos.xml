@@ -42,7 +42,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/ch1"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:textAlignment="center"
@@ -50,7 +50,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/ch3"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3km"
                 android:textAlignment="center"
@@ -58,7 +58,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/ch5"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5km"
                 android:textAlignment="center"
@@ -66,7 +66,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/ch10"
-                android:layout_width="60dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10km"
                 android:textAlignment="center"

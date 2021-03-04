@@ -244,9 +244,12 @@
         android:layout_marginTop="40dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/btn_guardar"
         android:textSize="22sp"
-        style="@style/ButtonOrange"/>
+        app:strokeColor="@color/colorAccent"
+        android:textColor="@color/colorAccent"
+        style="?materialButtonOutlinedStyle"/>
 
 
 </LinearLayout>

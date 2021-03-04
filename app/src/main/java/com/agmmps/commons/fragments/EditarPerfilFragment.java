@@ -118,7 +118,7 @@ public class EditarPerfilFragment extends Fragment {
         imbEditarImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "EDITAR IMAGEN", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.selecciona_imagen, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/jpeg");
                 intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
@@ -157,17 +157,15 @@ public class EditarPerfilFragment extends Fragment {
                             usuEditado = new Usuario(0, downloadUri.toString() ,  correo, password, nombre, barrio, descrip);
 
                             dbRef.child(user.getUid()).setValue(usuEditado);
-
-                            Toast.makeText(getContext(), "Has modificado tu perfil con exito!", Toast.LENGTH_SHORT).show();
-                Snackbar snackbar = Snackbar
-                        .make(getActivity().getWindow().getDecorView().getRootView(), R.string.perfil_modificado_ok, Snackbar.LENGTH_LONG)
-                        .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
+                            Snackbar snackbar = Snackbar
+                                    .make(getActivity().getWindow().getDecorView().getRootView(), R.string.perfil_modificado_ok, Snackbar.LENGTH_LONG)
+                                    .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
 
 
-                //View para introducir margen por encima del BottomBar
-                View snackBarView = snackbar.getView();
-                snackBarView.setTranslationY(-(convertDpToPixel(112, getActivity())));
-                snackbar.show();
+                            //View para introducir margen por encima del BottomBar
+                            View snackBarView = snackbar.getView();
+                            snackBarView.setTranslationY(-(convertDpToPixel(112, getActivity())));
+                            snackbar.show();
 
                             listener.backPerfil();
 
@@ -191,11 +189,9 @@ public class EditarPerfilFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RC_PHOTO_ADJ && resultCode == Activity.RESULT_OK) {
-            Log.i("OnAFR", "LLEGA");
             selectedUri = data.getData();
             Glide.with(imageView.getContext()).load(selectedUri).circleCrop()
                     .into(imageView);
-            Log.i("OnAFR", selectedUri.toString());
         }
     }
 
@@ -234,9 +230,6 @@ public class EditarPerfilFragment extends Fragment {
                 .placeholder(R.drawable.ic_logo_usuarios)
                 .circleCrop()
                 .into(imageView);
-
-
-
 
         etNombre.setText(usuLoged.getNombre());
         etBarrio.setText(usuLoged.getBarrio());
