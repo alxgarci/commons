@@ -164,7 +164,7 @@ public class EditarPerfilFragment extends Fragment {
 
                             //View para introducir margen por encima del BottomBar
                             View snackBarView = snackbar.getView();
-                            snackBarView.setTranslationY(-(convertDpToPixel(112, getActivity())));
+                            snackBarView.setTranslationY(-(convertDpToPixel(56, getActivity())));
                             snackbar.show();
 
                             listener.backPerfil();
