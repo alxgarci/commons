@@ -4,8 +4,10 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ import com.agmmps.commons.R;
 import com.agmmps.commons.javabeans.Usuario;
 import com.agmmps.commons.listeners.VolverListener;
 import com.bumptech.glide.Glide;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -114,7 +117,15 @@ public class EditarPerfilFragment extends Fragment {
 
                 dbRef.child(user.getUid()).setValue(usuEditado);
 
-                Toast.makeText(getContext(), "Has modificado tu perfil con exito!", Toast.LENGTH_SHORT).show();
+                Snackbar snackbar = Snackbar
+                        .make(getActivity().getWindow().getDecorView().getRootView(), R.string.perfil_modificado_ok, Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
+
+
+                //View para introducir margen por encima del BottomBar
+                View snackBarView = snackbar.getView();
+                snackBarView.setTranslationY(-(convertDpToPixel(112, getActivity())));
+                snackbar.show();
 
                 listener.backPerfil();
 
@@ -123,6 +134,10 @@ public class EditarPerfilFragment extends Fragment {
 
 
         return view;
+    }
+
+    public static float convertDpToPixel(float dp, Context context){
+        return dp * ((float) context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT);
     }
 
     @Override

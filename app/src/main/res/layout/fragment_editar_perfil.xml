@@ -98,7 +98,7 @@
             android:id="@+id/lEditPerfFragBarrio"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_weight="8"
             style="@style/myInputTextMain">
 
             <com.google.android.material.textfield.TextInputEditText
