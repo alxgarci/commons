@@ -75,6 +75,7 @@ public class EditarPerfilFragment extends Fragment {
     String correo;
     String password;
     String descrip;
+    boolean fotoCambiada;
 
     public EditarPerfilFragment() {
 
@@ -113,6 +114,8 @@ public class EditarPerfilFragment extends Fragment {
         dbRef = FirebaseDatabase.getInstance().getReference("datos/usuarios");
         mFotoStorageRef = FirebaseStorage.getInstance().getReference().child("fotos");
 
+        fotoCambiada = false;
+
         addListener();
 
         imbEditarImagen.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +126,7 @@ public class EditarPerfilFragment extends Fragment {
                 intent.setType("image/jpeg");
                 intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
                 startActivityForResult(Intent.createChooser(intent, "Complete la acción usando"), RC_PHOTO_ADJ);
+                fotoCambiada = true;
 
             }
         });
@@ -137,41 +141,59 @@ public class EditarPerfilFragment extends Fragment {
                 password = etPassword.getText().toString().trim();
                 descrip = etDescrip.getText().toString().trim();
 
+                if (fotoCambiada) {
+                    final StorageReference fotoRef = mFotoStorageRef.child(selectedUri.getEncodedPath());
+                    UploadTask ut = fotoRef.putFile(selectedUri);
+                    Task<Uri> urlTask = ut.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                        @Override
+                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                            if (!task.isSuccessful()) {
+                                throw task.getException();
+                            }
 
-                final StorageReference fotoRef = mFotoStorageRef.child(selectedUri.getEncodedPath());
-                UploadTask ut = fotoRef.putFile(selectedUri);
-                Task<Uri> urlTask = ut.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                    @Override
-                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                        if (!task.isSuccessful()) {
-                            throw task.getException();
+                            return fotoRef.getDownloadUrl();
                         }
+                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            if (task.isSuccessful()) {
+                                Uri downloadUri = task.getResult();
+                                usuEditado = new Usuario(0, downloadUri.toString() ,  correo, password, nombre, barrio, descrip);
 
-                        return fotoRef.getDownloadUrl();
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Uri> task) {
-                        if (task.isSuccessful()) {
-                            Uri downloadUri = task.getResult();
-                            usuEditado = new Usuario(0, downloadUri.toString() ,  correo, password, nombre, barrio, descrip);
-
-                            dbRef.child(user.getUid()).setValue(usuEditado);
-                            Snackbar snackbar = Snackbar
-                                    .make(getActivity().getWindow().getDecorView().getRootView(), R.string.perfil_modificado_ok, Snackbar.LENGTH_LONG)
-                                    .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
+                                dbRef.child(user.getUid()).setValue(usuEditado);
+                                Snackbar snackbar = Snackbar
+                                        .make(getActivity().getWindow().getDecorView().getRootView(), R.string.perfil_modificado_ok, Snackbar.LENGTH_LONG)
+                                        .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
 
 
-                            //View para introducir margen por encima del BottomBar
-                            View snackBarView = snackbar.getView();
-                            snackBarView.setTranslationY(-(convertDpToPixel(56, getActivity())));
-                            snackbar.show();
+                                //View para introducir margen por encima del BottomBar
+                                View snackBarView = snackbar.getView();
+                                snackBarView.setTranslationY(-(convertDpToPixel(56, getActivity())));
+                                snackbar.show();
 
-                            listener.backPerfil();
+                                listener.backPerfil();
 
+                            }
                         }
-                    }
-                });
+                    });
+                } else {
+                    usuEditado = new Usuario(0, usuLoged.getUrlFoto() ,  correo, password, nombre, barrio, descrip);
+
+                    dbRef.child(user.getUid()).setValue(usuEditado);
+                    Snackbar snackbar = Snackbar
+                            .make(getActivity().getWindow().getDecorView().getRootView(), R.string.perfil_modificado_ok, Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
+
+
+                    //View para introducir margen por encima del BottomBar
+                    View snackBarView = snackbar.getView();
+                    snackBarView.setTranslationY(-(convertDpToPixel(56, getActivity())));
+                    snackbar.show();
+
+                    listener.backPerfil();
+                }
+
+
 
             }
         });

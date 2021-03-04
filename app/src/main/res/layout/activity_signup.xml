@@ -38,7 +38,7 @@
             android:textColor="@color/colorBackground"
             android:background="@color/colorTransparent"
             android:layout_marginStart="-8dp"
-            android:hint="@string/hint_login_usuario"
+            android:hint="@string/hint_signup_usuario"
             android:fontFamily="@font/montserrat"/>
 
     </com.google.android.material.textfield.TextInputLayout>

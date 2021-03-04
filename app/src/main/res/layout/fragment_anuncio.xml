@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragments.AnuncioFragment"
     android:layout_marginBottom="116dp">
@@ -64,6 +65,8 @@
         android:layout_marginLeft="50dp"
         android:text="Publicar"
         android:textSize="22sp"
-        style="@style/ButtonOrange"/>
+        app:strokeColor="@color/colorAccent"
+        android:textColor="@color/colorAccent"
+        style="?materialButtonOutlinedStyle"/>
 
 </LinearLayout>
