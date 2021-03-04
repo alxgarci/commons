@@ -71,7 +71,7 @@ public class SignUp extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 user = fba.getCurrentUser();
                                 //TODO:
-                                usuReg = new Usuario(0, email, password, nombre, barrio, "");
+                                usuReg = new Usuario("", email, password, nombre, barrio, "");
 
                                 dr.child("usuarios").child(user.getUid()).setValue(usuReg);
 

@@ -1,11 +1,18 @@
 package com.agmmps.commons.fragments;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +27,10 @@ import com.agmmps.commons.R;
 import com.agmmps.commons.javabeans.Usuario;
 import com.agmmps.commons.listeners.VolverListener;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,10 +38,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 
 
 public class EditarPerfilFragment extends Fragment {
 
+    public static final int RC_PHOTO_ADJ = 1;
 
     EditText etNombre;
     EditText etBarrio;
@@ -47,10 +63,18 @@ public class EditarPerfilFragment extends Fragment {
 
     DatabaseReference dbRef;
     ValueEventListener vel;
+    Uri selectedUri;
+    StorageReference mFotoStorageRef;
 
     Usuario usuLoged;
     Usuario usuEditado;
     VolverListener listener;
+
+    String nombre;
+    String barrio;
+    String correo;
+    String password;
+    String descrip;
 
     public EditarPerfilFragment() {
 
@@ -87,16 +111,19 @@ public class EditarPerfilFragment extends Fragment {
         fba = FirebaseAuth.getInstance();
         user = fba.getCurrentUser();
         dbRef = FirebaseDatabase.getInstance().getReference("datos/usuarios");
+        mFotoStorageRef = FirebaseStorage.getInstance().getReference().child("fotos");
 
-
-        fba = FirebaseAuth.getInstance();
-        user = fba.getCurrentUser();
+        addListener();
 
         imbEditarImagen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "EDITAR IMAGEN", Toast.LENGTH_SHORT).show();
-                //TODO:
+                Toast.makeText(getContext(), R.string.selecciona_imagen, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/jpeg");
+                intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+                startActivityForResult(Intent.createChooser(intent, "Complete la acción usando"), RC_PHOTO_ADJ);
+
             }
         });
 
@@ -104,19 +131,47 @@ public class EditarPerfilFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String nombre = etNombre.getText().toString().trim();
-                String barrio = etBarrio.getText().toString().trim();
-                String correo = etCorreo.getText().toString().trim();
-                String password = etPassword.getText().toString().trim();
-                String descrip = etDescrip.getText().toString().trim();
+                nombre = etNombre.getText().toString().trim();
+                barrio = etBarrio.getText().toString().trim();
+                correo = etCorreo.getText().toString().trim();
+                password = etPassword.getText().toString().trim();
+                descrip = etDescrip.getText().toString().trim();
 
-                usuEditado = new Usuario(usuLoged.getId_imagen(), correo, password, nombre, barrio, descrip);
 
-                dbRef.child(user.getUid()).setValue(usuEditado);
+                final StorageReference fotoRef = mFotoStorageRef.child(selectedUri.getEncodedPath());
+                UploadTask ut = fotoRef.putFile(selectedUri);
+                Task<Uri> urlTask = ut.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
 
-                Toast.makeText(getContext(), "Has modificado tu perfil con exito!", Toast.LENGTH_SHORT).show();
+                        return fotoRef.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
+                            Uri downloadUri = task.getResult();
+                            usuEditado = new Usuario(0, downloadUri.toString() ,  correo, password, nombre, barrio, descrip);
 
-                listener.backPerfil();
+                            dbRef.child(user.getUid()).setValue(usuEditado);
+                            Snackbar snackbar = Snackbar
+                                    .make(getActivity().getWindow().getDecorView().getRootView(), R.string.perfil_modificado_ok, Snackbar.LENGTH_LONG)
+                                    .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
+
+
+                            //View para introducir margen por encima del BottomBar
+                            View snackBarView = snackbar.getView();
+                            snackBarView.setTranslationY(-(convertDpToPixel(112, getActivity())));
+                            snackbar.show();
+
+                            listener.backPerfil();
+
+                        }
+                    }
+                });
 
             }
         });
@@ -125,11 +180,26 @@ public class EditarPerfilFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        addListener();
+    public static float convertDpToPixel(float dp, Context context){
+        return dp * ((float) context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT);
     }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_PHOTO_ADJ && resultCode == Activity.RESULT_OK) {
+            selectedUri = data.getData();
+            Glide.with(imageView.getContext()).load(selectedUri).circleCrop()
+                    .into(imageView);
+        }
+    }
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        addListener();
+//    }
 
     private void addListener() {
         if (vel == null) {
@@ -153,16 +223,18 @@ public class EditarPerfilFragment extends Fragment {
     }
 
     private void cargarDatosUsuario() {
+
+
         Glide.with(this)
-                .load(R.drawable.usuario_1)
+                .load(usuLoged.getUrlFoto())
                 .placeholder(R.drawable.ic_logo_usuarios)
                 .circleCrop()
                 .into(imageView);
+
         etNombre.setText(usuLoged.getNombre());
         etBarrio.setText(usuLoged.getBarrio());
         etDescrip.setText(usuLoged.getDescripcion());
         etCorreo.setText(usuLoged.getCorreo());
-        //etPassword.cle
         etPassword.setText(usuLoged.getPassword());
     }
 

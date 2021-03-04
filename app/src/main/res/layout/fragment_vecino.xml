@@ -89,7 +89,8 @@
         app:icon="@drawable/ic_outline_email_24"
         app:iconGravity="textStart"
         android:text="@string/btn_fragment_vecinos_email"
-        style="@style/ButtonGreen"/>
+        style="?attr/materialButtonOutlinedStyle"
+        app:strokeColor="@color/colorPrimary"/>
 
 
 

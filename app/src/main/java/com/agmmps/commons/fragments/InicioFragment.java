@@ -7,10 +7,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.agmmps.commons.R;
 import com.agmmps.commons.javabeans.Datos;
@@ -66,7 +68,6 @@ public class InicioFragment extends Fragment {
 
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
-
         final Datos datos = new Datos();
         InicioAdapter inicAdap = new InicioAdapter((datos.getDatos()));
         inicAdap.setListener(new View.OnClickListener() {
@@ -77,6 +78,7 @@ public class InicioFragment extends Fragment {
                 listener.accederVecinoInicio(usuario);
             }
         });
+
         rv.setAdapter(inicAdap);
 
 

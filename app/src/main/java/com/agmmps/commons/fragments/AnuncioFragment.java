@@ -6,18 +6,21 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.agmmps.commons.R;
 import com.agmmps.commons.javabeans.Anuncio;
 import com.agmmps.commons.javabeans.Usuario;
 import com.agmmps.commons.listeners.VolverListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -81,7 +84,7 @@ public class AnuncioFragment extends Fragment {
 
                 if (descripAnun.isEmpty()) {
 
-                    Toast.makeText(getContext(), "Debes rellenar el anuncio!", Toast.LENGTH_SHORT).show();
+                    createSnackbar(0);
 
                 } else {
 
@@ -93,9 +96,7 @@ public class AnuncioFragment extends Fragment {
 
                     dr.child("anuncios").push().setValue(anuncio);
 
-
-                    Toast.makeText(getContext(), "Anuncio publicado!", Toast.LENGTH_SHORT).show();
-
+                    createSnackbar(1);
                     listener.backInicio();
 
                 }
@@ -105,6 +106,34 @@ public class AnuncioFragment extends Fragment {
         });
 
         return view;
+    }
+
+    //Metodo para crear los snackbar segun el resultado de la creacion del anuncio
+    private void createSnackbar(int i) {
+        switch (i) {
+            case 0:
+                Snackbar snackbar = Snackbar
+                        .make(getActivity().getWindow().getDecorView().getRootView(), R.string.anuncio_creado_err, Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
+                View snackBarView = snackbar.getView();
+                snackBarView.setTranslationY(-(convertDpToPixel(112, getActivity())));
+                snackbar.show();
+                break;
+            case 1:
+                Snackbar snackbar2 = Snackbar
+                        .make(getActivity().getWindow().getDecorView().getRootView(), R.string.anuncio_creado_ok, Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
+                View snackBarView2 = snackbar2.getView();
+                snackBarView2.setTranslationY(-(convertDpToPixel(112, getActivity())));
+                snackbar2.show();
+                break;
+
+        }
+    }
+
+    //Metodo para convertir de dp a pixel para añadir los margenes
+    public static float convertDpToPixel(float dp, Context context){
+        return dp * ((float) context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT);
     }
 
     @Override

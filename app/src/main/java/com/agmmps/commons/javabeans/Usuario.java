@@ -5,8 +5,8 @@ import android.os.Parcelable;
 
 public class Usuario implements Parcelable {
 
-   // private int id_usuario;
     private int id_imagen;
+    private String urlFoto;
     private String correo;
     private String password;
     private String nombre;
@@ -16,15 +16,25 @@ public class Usuario implements Parcelable {
     public Usuario() {
     }
 
-    public Usuario(int id_imagen, String correo, String password, String nombre, String barrio, String descripcion) {
-//        this.id_usuario = id_usuario;
-        this.id_imagen = id_imagen;
+    public Usuario(String urlFoto, String correo, String password, String nombre, String barrio, String descripcion) {
+        this.urlFoto = urlFoto;
         this.correo = correo;
         this.password = password;
         this.nombre = nombre;
         this.barrio = barrio;
         this.descripcion = descripcion;
     }
+
+    public Usuario(int id_imagen, String urlFoto, String correo, String password, String nombre, String barrio, String descripcion) {
+        this.id_imagen = id_imagen;
+        this.urlFoto = urlFoto;
+        this.correo = correo;
+        this.password = password;
+        this.nombre = nombre;
+        this.barrio = barrio;
+        this.descripcion = descripcion;
+    }
+
 
     public String getCorreo() {
         return correo;
@@ -43,8 +53,8 @@ public class Usuario implements Parcelable {
     }
 
     protected Usuario(Parcel in) {
-//        id_usuario = in.readInt();
-//        id_imagen = in.readInt();
+        id_imagen = in.readInt();
+        urlFoto = in.readString();
         correo = in.readString();
         password = in.readString();
         nombre = in.readString();
@@ -64,14 +74,6 @@ public class Usuario implements Parcelable {
         }
     };
 
-//    public int getId_usuario() {
-//        return id_usuario;
-//    }
-//
-//    public void setId_usuario(int id_usuario) {
-//        this.id_usuario = id_usuario;
-//    }
-//
     public int getId_imagen() {
         return id_imagen;
     }
@@ -80,6 +82,13 @@ public class Usuario implements Parcelable {
         this.id_imagen = id_imagen;
     }
 
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
+    }
 
     public String getNombre() {
         return nombre;
@@ -113,7 +122,7 @@ public class Usuario implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
 //        dest.writeInt(id_usuario);
-//        dest.writeInt(id_imagen);
+        dest.writeString(urlFoto);
         dest.writeString(correo);
         dest.writeString(password);
         dest.writeString(nombre);
