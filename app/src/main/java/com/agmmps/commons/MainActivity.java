@@ -283,6 +283,11 @@ public class MainActivity extends AppCompatActivity implements VecinoFragmentLis
         addFragment(R.id.itmUsuario);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 //        @Override
 //    protected void onResume() {
 //        super.onResume();

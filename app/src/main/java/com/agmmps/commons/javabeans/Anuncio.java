@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 public class Anuncio implements Parcelable {
 
-     private String descripAnun;
+    private String descripAnun;
     private String usuarioUID;
     private Usuario usuario;
 
