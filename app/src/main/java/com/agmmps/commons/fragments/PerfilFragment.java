@@ -91,7 +91,7 @@ public class PerfilFragment extends Fragment {
 
     private void cargarDatosUsuario() {
         Glide.with(this)
-                .load(R.drawable.usuario_1)
+                .load(usuLoged.getUrlFoto())
                 .placeholder(R.drawable.ic_logo_usuarios)
                 .circleCrop()
                 .into(imPerfil);

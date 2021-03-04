@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/tv_fragment_nombre"
+
             android:textAlignment="center"
             android:textColor="@color/colorBlack"
             android:textSize="24sp" />
@@ -45,8 +45,8 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:fontFamily="@font/montserrat"
-                    android:textColor="@color/colorPrimaryLight"
-                    android:text="@string/tv_fragment_ubicacion"/>
+                    android:textColor="@color/colorPrimaryLight"/>
+
         </LinearLayout>
 
 
@@ -75,8 +75,8 @@
                         <TextView
                             android:id="@+id/tvFragmentDescripcion"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tv_fragment_descripcion"/>
+                            android:layout_height="wrap_content"/>
+
                 </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
