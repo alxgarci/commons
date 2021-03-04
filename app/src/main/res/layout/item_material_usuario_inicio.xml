@@ -27,7 +27,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:textAlignment="center"
-                android:text="Mikel Izubirraga"
                 android:textColor="@color/colorPrimary"
                 android:textSize="22sp"/>
             <LinearLayout
@@ -48,7 +47,6 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="0dp"
                     android:gravity="center"
-                    android:text="A 1.2 km de ti"
                     android:textSize="14sp"
                     android:fontFamily="@font/montserrat"
                     android:textColor="@color/colorPrimaryLight"/>
@@ -64,8 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:text="Busco amigos para sallir a hacer un poquito de jogging que me estoy poniendo fondon. Y claro esto no puede ser bueno porque luego van a llegar las Navidades y hombre, esta feo"/>
+                android:layout_marginRight="16dp"/>
 
         </LinearLayout>
     </LinearLayout>

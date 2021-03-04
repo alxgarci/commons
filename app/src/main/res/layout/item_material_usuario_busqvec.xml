@@ -27,7 +27,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:textAlignment="center"
-                android:text="Mikel Izubirraga"
                 android:textColor="@color/colorPrimary"
                 android:textSize="22sp"/>
             <LinearLayout
@@ -48,7 +47,6 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="0dp"
                     android:gravity="center"
-                    android:text="A 1.2 km de ti"
                     android:textSize="15sp"
                     android:fontFamily="@font/montserrat"
                     android:textColor="@color/colorPrimaryLight"/>

@@ -55,4 +55,8 @@
     <string name="anuncio_creado_ok">Se ha publicado el anuncio correctamente.</string>
     <string name="selecciona_imagen">Selecciona una imagen</string>
     <string name="hint_signup_usuario">Nombre</string>
+    <string name="chip_1">1km</string>
+    <string name="chip_3">3km</string>
+    <string name="chip_5">5km</string>
+    <string name="chip_10">10km</string>
 </resources>
