@@ -116,7 +116,7 @@ public class AnuncioFragment extends Fragment {
                         .make(getActivity().getWindow().getDecorView().getRootView(), R.string.anuncio_creado_err, Snackbar.LENGTH_LONG)
                         .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
                 View snackBarView = snackbar.getView();
-                snackBarView.setTranslationY(-(convertDpToPixel(112, getActivity())));
+                snackBarView.setTranslationY(-(convertDpToPixel(56, getActivity())));
                 snackbar.show();
                 break;
             case 1:
@@ -124,7 +124,7 @@ public class AnuncioFragment extends Fragment {
                         .make(getActivity().getWindow().getDecorView().getRootView(), R.string.anuncio_creado_ok, Snackbar.LENGTH_LONG)
                         .setBackgroundTint(getResources().getColor(R.color.colorPrimary));
                 View snackBarView2 = snackbar2.getView();
-                snackBarView2.setTranslationY(-(convertDpToPixel(112, getActivity())));
+                snackBarView2.setTranslationY(-(convertDpToPixel(56, getActivity())));
                 snackbar2.show();
                 break;
 
